@@ -1,0 +1,7 @@
+#!/bin/bash
+set -e
+
+tags="1.9.7 1.9 mainline latest"
+for tag in ${tags}; do
+  docker push sickp/alpine-nginx:${tag}
+done

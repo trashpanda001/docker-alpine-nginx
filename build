@@ -1,0 +1,7 @@
+#!/bin/bash
+set -e
+
+docker build -t sickp/alpine-nginx:1.9.7 --pull .
+docker tag -f sickp/alpine-nginx:1.9.7 sickp/alpine-nginx:1.9
+docker tag -f sickp/alpine-nginx:1.9.7 sickp/alpine-nginx:mainline
+docker tag -f sickp/alpine-nginx:1.9.7 sickp/alpine-nginx:latest
