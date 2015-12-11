@@ -23,8 +23,7 @@ nginx version: nginx/1.9.9
 built by gcc 4.9.2 (Alpine 4.9.2)
 built with OpenSSL 1.0.2d 9 Jul 2015
 TLS SNI support enabled
-configure arguments: --prefix=/etc/nginx --sbin-path=/usr/sbin/nginx --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --pid-path=/var/run/nginx.pid --lock-path=/var/run/nginx.lock --http-client-body-temp-path=/var/cache/nginx/client_temp --http-proxy-temp-path=/var/cache/nginx/proxy_temp --http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp --http-uwsgi-temp-path
-  --prefix=/etc/nginx
+configure arguments:
   --sbin-path=/usr/sbin/nginx
   --conf-path=/etc/nginx/nginx.conf
   --error-log-path=/var/log/nginx/error.log
