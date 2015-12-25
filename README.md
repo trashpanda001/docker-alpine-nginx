@@ -20,8 +20,8 @@ $ docker run --rm sickp/alpine-nginx:latest -V
 
 ```
 nginx version: nginx/1.9.9
-built by gcc 4.9.2 (Alpine 4.9.2)
-built with OpenSSL 1.0.2d 9 Jul 2015
+built by gcc 5.3.0 (Alpine 5.3.0)
+built with OpenSSL 1.0.2e 3 Dec 2015
 TLS SNI support enabled
 configure arguments:
   --sbin-path=/usr/sbin/nginx
@@ -62,6 +62,7 @@ configure arguments:
 
 ### History
 
+- 2015-12-24 Updated 1.9.9 image to Alpine Linux 3.3 (gcc 5.3.0, OpenSSL 1.0.2e)
 - 2015-12-10 Updated to 1.9.9.
 - 2015-11-27 Initial version.
 

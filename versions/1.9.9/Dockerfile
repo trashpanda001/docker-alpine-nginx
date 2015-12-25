@@ -1,10 +1,12 @@
-FROM gliderlabs/alpine:3.2
+FROM gliderlabs/alpine:3.3
 MAINTAINER Adrian B. Danieli "https://github.com/sickp"
 
 ENV NGINX_VERSION=1.9.9
 
 RUN \
-  apk --update add build-base ca-certificates linux-headers openssl openssl-dev pcre pcre-dev wget zlib zlib-dev && \
+  build_pkgs="build-base linux-headers openssl-dev pcre-dev wget zlib-dev" && \
+  runtime_pkgs="ca-certificates openssl pcre zlib" && \
+  apk --update add ${build_pkgs} ${runtime_pkgs} && \
   cd /tmp && \
   wget http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz && \
   tar xzf nginx-${NGINX_VERSION}.tar.gz && \
@@ -50,7 +52,7 @@ RUN \
   sed -i -e 's/#access_log  logs\/access.log  main;/access_log \/dev\/stdout;/' -e 's/#error_log  logs\/error.log  notice;/error_log stderr notice;/' /etc/nginx/nginx.conf && \
   adduser -D nginx && \
   rm -rf /tmp/* && \
-  apk del build-base linux-headers openssl-dev pcre-dev wget zlib-dev && \
+  apk del ${build_pkgs} && \
   rm -rf /var/cache/apk/*
 
 VOLUME ["/var/cache/nginx"]
