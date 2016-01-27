@@ -15,11 +15,8 @@ An [Nginx][nginx] [Docker image][alpine_nginx] built on top of [Glider Labs's Al
 
 [Nginx][nginx] is compiled from source using the same [configure arguments][nginx_configure] as the official, pre-built packages.
 
-```ash
+```sh
 $ docker run --rm sickp/alpine-nginx:latest -V
-```
-
-```
 nginx version: nginx/1.9.10
 built by gcc 5.3.0 (Alpine 5.3.0)
 built with OpenSSL 1.0.2e 3 Dec 2015
@@ -59,12 +56,15 @@ configure arguments:
   --with-stream
   --with-stream_ssl_module
   --with-http_v2_module
+
+docker run --rm --entrypoint=cat sickp/alpine-nginx:latest /etc/alpine-release
+3.3.1
 ```
 
 ### History
 
-- 2016-01-26 Updated to 1.9.10.
-- 2015-12-24 Updated 1.9.9 image to Alpine Linux 3.3 (gcc 5.3.0, OpenSSL 1.0.2e)
+- 2016-01-26 Updated to Nginx 1.9.10, Alpine Linux 3.3.1.
+- 2015-12-24 Updated 1.9.9 image to Alpine Linux 3.3 (gcc 5.3.0, OpenSSL 1.0.2e).
 - 2015-12-10 Updated to 1.9.9.
 - 2015-11-27 Initial version.
 
