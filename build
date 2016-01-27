@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
-repo="sickp/alpine-nginx"
-latest=$(ls -r versions | head -1)
+repo=sickp/alpine-nginx
+latest=1.9.10
 version=${1:-$latest}
 
 docker build -t ${repo}:${version} --pull versions/${version}

@@ -5,7 +5,8 @@ An [Nginx][nginx] [Docker image][alpine_nginx] built on top of [Glider Labs's Al
 
 #### Supported tags and `Dockerfile` links
 
-* [`1.9.9`][dockerfile_1_9_9], [`1.9`][dockerfile_1_9_9], [`mainline`][dockerfile_1_9_9], [`latest`][dockerfile_1_9_9] ([Dockerfile][dockerfile_1_9_9], [Changes][nginx_changes])
+* [`1.9.10`][dockerfile_1_9_10], [`1.9`][dockerfile_1_9_10], [`mainline`][dockerfile_1_9_10], [`latest`][dockerfile_1_9_10] ([Dockerfile][dockerfile_1_9_10], [Changes][nginx_changes])
+* [`1.9.9`][dockerfile_1_9_9] ([Dockerfile][dockerfile_1_9_9])
 * [`1.9.8`][dockerfile_1_9_8] ([Dockerfile][dockerfile_1_9_8])
 * [`1.9.7`][dockerfile_1_9_7] ([Dockerfile][dockerfile_1_9_7])
 
@@ -19,7 +20,7 @@ $ docker run --rm sickp/alpine-nginx:latest -V
 ```
 
 ```
-nginx version: nginx/1.9.9
+nginx version: nginx/1.9.10
 built by gcc 5.3.0 (Alpine 5.3.0)
 built with OpenSSL 1.0.2e 3 Dec 2015
 TLS SNI support enabled
@@ -62,12 +63,14 @@ configure arguments:
 
 ### History
 
+- 2016-01-26 Updated to 1.9.10.
 - 2015-12-24 Updated 1.9.9 image to Alpine Linux 3.3 (gcc 5.3.0, OpenSSL 1.0.2e)
 - 2015-12-10 Updated to 1.9.9.
 - 2015-11-27 Initial version.
 
 [alpine_nginx]:      https://hub.docker.com/r/sickp/alpine-nginx/
 [gliderlabs_alpine]: https://hub.docker.com/r/gliderlabs/alpine/
+[dockerfile_1_9_10]: https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.9.10/Dockerfile
 [dockerfile_1_9_9]:  https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.9.9/Dockerfile
 [dockerfile_1_9_8]:  https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.9.8/Dockerfile
 [dockerfile_1_9_7]:  https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.9.7/Dockerfile
