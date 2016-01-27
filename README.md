@@ -1,11 +1,12 @@
 ### Alpine Linux Nginx
 
-An [Nginx][nginx] [Docker image][alpine_nginx] built on top of [Glider Labs's Alpine Linux][gliderlabs_alpine] Docker image.
+An [Nginx][nginx] [Docker image][alpine_nginx] built on top of [Alpine Linux][gliderlabs_alpine]. Tags with the `-k8s` suffix are built on [Alpine-Kubernetes][alpine_kubernetes], an image for Kubernetes and other Docker cluster environments that use DNS-based service discovery. It adds the necessary `search` domain support for DNS resolution.
 
 
-#### Supported tags and `Dockerfile` links
+#### Supported tags and Dockerfile links
 
 * [`1.9.10`][dockerfile_1_9_10], [`1.9`][dockerfile_1_9_10], [`mainline`][dockerfile_1_9_10], [`latest`][dockerfile_1_9_10] ([Dockerfile][dockerfile_1_9_10], [Changes][nginx_changes])
+* [`1.9.10-k8s`][dockerfile_1_9_10_k8s], [`1.9-k8s`][dockerfile_1_9_10_k8s], [`mainline-k8s`][dockerfile_1_9_10_k8s], [`latest-k8s`][dockerfile_1_9_10_k8s] ([Dockerfile][dockerfile_1_9_10_k8s], Kubernetes compatible)
 * [`1.9.9`][dockerfile_1_9_9] ([Dockerfile][dockerfile_1_9_9])
 * [`1.9.8`][dockerfile_1_9_8] ([Dockerfile][dockerfile_1_9_8])
 * [`1.9.7`][dockerfile_1_9_7] ([Dockerfile][dockerfile_1_9_7])
@@ -63,17 +64,20 @@ docker run --rm --entrypoint=cat sickp/alpine-nginx:latest /etc/alpine-release
 
 ### History
 
+- 2016-01-27 Added Kubernetes versions (-k8s), until Alpine Linux/musl adds DNS search support.
 - 2016-01-26 Updated to Nginx 1.9.10, Alpine Linux 3.3.1.
 - 2015-12-24 Updated 1.9.9 image to Alpine Linux 3.3 (gcc 5.3.0, OpenSSL 1.0.2e).
 - 2015-12-10 Updated to 1.9.9.
 - 2015-11-27 Initial version.
 
-[alpine_nginx]:      https://hub.docker.com/r/sickp/alpine-nginx/
-[gliderlabs_alpine]: https://hub.docker.com/r/gliderlabs/alpine/
-[dockerfile_1_9_10]: https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.9.10/Dockerfile
-[dockerfile_1_9_9]:  https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.9.9/Dockerfile
-[dockerfile_1_9_8]:  https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.9.8/Dockerfile
-[dockerfile_1_9_7]:  https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.9.7/Dockerfile
-[nginx]:             http://nginx.org/
-[nginx_changes]:     http://nginx.org/en/CHANGES
-[nginx_configure]:   http://nginx.org/en/linux_packages.html#mainline
+[alpine_kubernetes]:     https://hub.docker.com/r/janeczku/alpine-kubernetes/
+[alpine_nginx]:          https://hub.docker.com/r/sickp/alpine-nginx/
+[gliderlabs_alpine]:     https://hub.docker.com/r/gliderlabs/alpine/
+[dockerfile_1_9_10]:     https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.9.10/Dockerfile
+[dockerfile_1_9_10_k8s]: https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.9.10-k8s/Dockerfile
+[dockerfile_1_9_9]:      https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.9.9/Dockerfile
+[dockerfile_1_9_8]:      https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.9.8/Dockerfile
+[dockerfile_1_9_7]:      https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.9.7/Dockerfile
+[nginx]:                 http://nginx.org/
+[nginx_changes]:         http://nginx.org/en/CHANGES
+[nginx_configure]:       http://nginx.org/en/linux_packages.html#mainline
