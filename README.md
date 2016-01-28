@@ -19,7 +19,7 @@ Tags with the `-k8s` suffix are built on [Alpine-Kubernetes][alpine_kubernetes],
 [Nginx][nginx] is compiled from source using the same [configure arguments][nginx_configure] as the official, pre-built packages.
 
 ```sh
-$ docker run --rm sickp/alpine-nginx:latest -V
+$ docker run --rm sickp/alpine-nginx:latest nginx -V
 nginx version: nginx/1.9.10
 built by gcc 5.3.0 (Alpine 5.3.0)
 built with OpenSSL 1.0.2e 3 Dec 2015
@@ -60,7 +60,7 @@ configure arguments:
   --with-stream_ssl_module
   --with-http_v2_module
 
-$ docker run --rm --entrypoint=cat sickp/alpine-nginx:latest /etc/alpine-release
+$ docker run --rm sickp/alpine-nginx:latest cat /etc/alpine-release
 3.3.1
 ```
 
