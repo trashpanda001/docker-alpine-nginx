@@ -1,6 +1,6 @@
 ### Alpine Linux Nginx
 
-A lightweight [Nginx][nginx] [Docker image][alpine_nginx] built atop [Alpine Linux][gliderlabs_alpine].
+A lightweight [Nginx][nginx] [Docker image][alpine_nginx] built atop [Alpine Linux][gliderlabs_alpine]. Available on [Github][github_project].
 
 Tags with the `-k8s` suffix are built on [Alpine-Kubernetes][alpine_kubernetes], an image for Kubernetes and other Docker cluster environments that use DNS-based service discovery. It adds the necessary `search` domain support for DNS resolution.
 
@@ -74,6 +74,7 @@ docker run --rm --entrypoint=cat sickp/alpine-nginx:latest /etc/alpine-release
 
 [alpine_kubernetes]:     https://hub.docker.com/r/janeczku/alpine-kubernetes/
 [alpine_nginx]:          https://hub.docker.com/r/sickp/alpine-nginx/
+[github_project]:        https://github.com/sickp/docker-alpine-nginx/
 [gliderlabs_alpine]:     https://hub.docker.com/r/gliderlabs/alpine/
 [dockerfile_1_9_10]:     https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.9.10/Dockerfile
 [dockerfile_1_9_10_k8s]: https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.9.10-k8s/Dockerfile
