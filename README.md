@@ -1,6 +1,6 @@
 ### Alpine Linux Nginx
 
-A lightweight [Nginx][nginx] [Docker image][alpine_nginx] built atop [Alpine Linux][gliderlabs_alpine]. Available on [Github][github_project].
+A lightweight [Nginx][nginx] [Docker image][alpine_nginx] built atop [Alpine Linux][gliderlabs_alpine]. Available on [GitHub][github_project].
 
 Tags with the `-k8s` suffix are built on [Alpine-Kubernetes][alpine_kubernetes], an image for Kubernetes and other Docker cluster environments that use DNS-based service discovery. It adds the necessary `search` domain support for DNS resolution.
 
