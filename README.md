@@ -1,15 +1,17 @@
 ### Alpine Linux Nginx
 
-An [Nginx][nginx] [Docker image][alpine_nginx] built on top of [Alpine Linux][gliderlabs_alpine]. Tags with the `-k8s` suffix are built on [Alpine-Kubernetes][alpine_kubernetes], an image for Kubernetes and other Docker cluster environments that use DNS-based service discovery. It adds the necessary `search` domain support for DNS resolution.
+A lightweight [Nginx][nginx] [Docker image][alpine_nginx] built atop [Alpine Linux][gliderlabs_alpine].
+
+Tags with the `-k8s` suffix are built on [Alpine-Kubernetes][alpine_kubernetes], an image for Kubernetes and other Docker cluster environments that use DNS-based service discovery. It adds the necessary `search` domain support for DNS resolution.
 
 
-#### Supported tags and Dockerfile links
+#### Tags
 
-* [`1.9.10`][dockerfile_1_9_10], [`1.9`][dockerfile_1_9_10], [`mainline`][dockerfile_1_9_10], [`latest`][dockerfile_1_9_10] ([Dockerfile][dockerfile_1_9_10], [Changes][nginx_changes])
-* [`1.9.10-k8s`][dockerfile_1_9_10_k8s], [`1.9-k8s`][dockerfile_1_9_10_k8s], [`mainline-k8s`][dockerfile_1_9_10_k8s], [`latest-k8s`][dockerfile_1_9_10_k8s] ([Dockerfile][dockerfile_1_9_10_k8s], Kubernetes compatible)
-* [`1.9.9`][dockerfile_1_9_9] ([Dockerfile][dockerfile_1_9_9])
-* [`1.9.8`][dockerfile_1_9_8] ([Dockerfile][dockerfile_1_9_8])
-* [`1.9.7`][dockerfile_1_9_7] ([Dockerfile][dockerfile_1_9_7])
+* [`1.9.10`][dockerfile_1_9_10], [`1.9`][dockerfile_1_9_10], [`mainline`][dockerfile_1_9_10], [`latest`][dockerfile_1_9_10] (2016-01-26, [Changes][nginx_changes])
+* [`1.9.10-k8s`][dockerfile_1_9_10_k8s] (for Kubernetes)
+* [`1.9.9`][dockerfile_1_9_9] (2015-12-09)
+* [`1.9.8`][dockerfile_1_9_8] (2015-12-08)
+* [`1.9.7`][dockerfile_1_9_7] (2015-11-17)
 
 
 ### Configuration
