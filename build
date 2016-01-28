@@ -1,15 +1,17 @@
 #!/bin/bash
 set -e
+
 repo=sickp/alpine-nginx
 latest=1.9.10
 version=${1:-$latest}
+tags="1.9 mainline latest"
 
 docker build -t ${repo}:${version} --pull versions/${version}
-docker build -t ${repo}:${version}-k8s --pull versions/${version}-k8s
 echo "=> Built ${repo}:${version}"
+docker build -t ${repo}:${version}-k8s --pull versions/${version}-k8s
+echo "=> Built ${repo}:${version}-k8s"
 
 if [[ $latest == $version ]]; then
-  tags="1.9 mainline latest"
   for tag in ${tags}; do
     docker tag -f ${repo}:${version} ${repo}:${tag}
     echo "=> Tagged ${repo}:${tag}"
