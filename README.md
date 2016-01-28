@@ -1,6 +1,6 @@
 ### Alpine Linux Nginx
 
-A lightweight [Nginx][nginx] [Docker image][alpine_nginx] built atop [Alpine Linux][gliderlabs_alpine]. Available on [GitHub][github_project].
+A lightweight [Nginx][nginx] [Docker image][dockerhub_project] built atop [Alpine Linux][gliderlabs_alpine]. Available on [GitHub][github_project].
 
 Tags with the `-k8s` suffix are built on [Alpine-Kubernetes][alpine_kubernetes], an image for Kubernetes and other Docker cluster environments that use DNS-based service discovery. It adds the necessary `search` domain support for DNS resolution.
 
@@ -60,7 +60,7 @@ configure arguments:
   --with-stream_ssl_module
   --with-http_v2_module
 
-docker run --rm --entrypoint=cat sickp/alpine-nginx:latest /etc/alpine-release
+$ docker run --rm --entrypoint=cat sickp/alpine-nginx:latest /etc/alpine-release
 3.3.1
 ```
 
@@ -73,14 +73,14 @@ docker run --rm --entrypoint=cat sickp/alpine-nginx:latest /etc/alpine-release
 - 2015-11-27 Initial version.
 
 [alpine_kubernetes]:     https://hub.docker.com/r/janeczku/alpine-kubernetes/
-[alpine_nginx]:          https://hub.docker.com/r/sickp/alpine-nginx/
+[dockerhub_project]:     https://hub.docker.com/r/sickp/alpine-nginx/
 [github_project]:        https://github.com/sickp/docker-alpine-nginx/
 [gliderlabs_alpine]:     https://hub.docker.com/r/gliderlabs/alpine/
+[dockerfile_1_9_7]:      https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.9.7/Dockerfile
+[dockerfile_1_9_8]:      https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.9.8/Dockerfile
+[dockerfile_1_9_9]:      https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.9.9/Dockerfile
 [dockerfile_1_9_10]:     https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.9.10/Dockerfile
 [dockerfile_1_9_10_k8s]: https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.9.10-k8s/Dockerfile
-[dockerfile_1_9_9]:      https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.9.9/Dockerfile
-[dockerfile_1_9_8]:      https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.9.8/Dockerfile
-[dockerfile_1_9_7]:      https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.9.7/Dockerfile
 [nginx]:                 http://nginx.org/
 [nginx_changes]:         http://nginx.org/en/CHANGES
 [nginx_configure]:       http://nginx.org/en/linux_packages.html#mainline
