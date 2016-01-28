@@ -12,7 +12,6 @@ if [[ $latest == $version ]]; then
   tags="1.9 mainline latest"
   for tag in ${tags}; do
     docker tag -f ${repo}:${version} ${repo}:${tag}
-    docker tag -f ${repo}:${version}-k8s ${repo}:${tag}-k8s
     echo "=> Tagged ${repo}:${tag}"
   done
 fi

@@ -2,9 +2,8 @@
 set -e
 repo=sickp/alpine-nginx
 latest=1.9.10
-tags="${latest} 1.9 mainline latest"
+tags="${latest} ${latest}-k8s 1.9 mainline latest"
 for tag in ${tags}; do
   docker push ${repo}:${tag}
-  docker push ${repo}:${tag}-k8s
   echo "=> Pushed ${repo}:${tag}"
 done
