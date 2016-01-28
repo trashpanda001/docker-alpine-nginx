@@ -66,11 +66,11 @@ $ docker run --rm --entrypoint=cat sickp/alpine-nginx:latest /etc/alpine-release
 
 ### History
 
-- 2016-01-27 Added Kubernetes versions (-k8s), until Alpine Linux/musl adds DNS search support.
-- 2016-01-26 Updated to Nginx 1.9.10, Alpine Linux 3.3.1.
-- 2015-12-24 Updated 1.9.9 image to Alpine Linux 3.3 (gcc 5.3.0, OpenSSL 1.0.2e).
-- 2015-12-10 Updated to 1.9.9.
-- 2015-11-27 Initial version.
+- 2016-01-27 - Added Kubernetes versions (-k8s), until Alpine Linux/musl adds DNS search support.
+- 2016-01-26 - Updated to Nginx 1.9.10, Alpine Linux 3.3.1.
+- 2015-12-24 - Updated 1.9.9 image to Alpine Linux 3.3 (gcc 5.3.0, OpenSSL 1.0.2e).
+- 2015-12-10 - Updated to 1.9.9.
+- 2015-11-27 - Initial version.
 
 [alpine_kubernetes]:     https://hub.docker.com/r/janeczku/alpine-kubernetes/
 [dockerhub_project]:     https://hub.docker.com/r/sickp/alpine-nginx/
