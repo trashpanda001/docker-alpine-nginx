@@ -74,6 +74,9 @@ configure arguments:
   --with-stream_ssl_module
   --with-http_v2_module
 
+$ docker run --rm -it sickp/alpine-nginx openssl version
+OpenSSL 1.0.2f  28 Jan 2016
+
 $ docker run --rm sickp/alpine-nginx cat /etc/alpine-release
 3.3.1
 ```
