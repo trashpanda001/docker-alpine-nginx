@@ -2,7 +2,7 @@
 set -e
 
 repo=sickp/alpine-nginx
-latest=1.9.10
+latest=1.9.11
 version=${1:-$latest}
 tags="1.9 mainline latest"
 
