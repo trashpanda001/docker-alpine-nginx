@@ -36,7 +36,7 @@ $ docker run --rm sickp/alpine-nginx # nginx -g "daemon off;"
 $ docker run --rm sickp/alpine-nginx nginx -V
 nginx version: nginx/1.9.10
 built by gcc 5.3.0 (Alpine 5.3.0)
-built with OpenSSL 1.0.2e 3 Dec 2015
+built with OpenSSL 1.0.2f  28 Jan 2016
 TLS SNI support enabled
 configure arguments:
   --sbin-path=/usr/sbin/nginx
@@ -80,6 +80,7 @@ $ docker run --rm sickp/alpine-nginx cat /etc/alpine-release
 
 ### History
 
+- 2016-02-09 - Updated to OpenSSL 1.0.2f. Added support for ALPINE_NO_RESOLVER in 1.9.10-k8s.
 - 2016-01-27 - Added Kubernetes versions (-k8s), until Alpine Linux/musl adds DNS search support.
 - 2016-01-26 - Updated to Nginx 1.9.10, Alpine Linux 3.3.1.
 - 2015-12-24 - Updated 1.9.9 image to Alpine Linux 3.3 (gcc 5.3.0, OpenSSL 1.0.2e).
