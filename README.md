@@ -8,7 +8,7 @@ Tags with the `-k8s` suffix are built on [Alpine-Kubernetes][alpine_kubernetes],
 #### Tags
 
 * [`1.9.12`][dockerfile_1_9_12], [`1.9`][dockerfile_1_9_12], [`mainline`][dockerfile_1_9_12], [`latest`][dockerfile_1_9_12] (2016-02-24, [Changes][nginx_changes])
-* [`1.9.11-k8s`][dockerfile_1_9_12_k8s] (for Kubernetes)
+* [`1.9.12-k8s`][dockerfile_1_9_12_k8s] (for Kubernetes)
 * [`1.9.11`][dockerfile_1_9_11], [`1.9.11-k8s`][dockerfile_1_9_11_k8s] (2016-02-09)
 * [`1.9.10`][dockerfile_1_9_10], [`1.9.10-k8s`][dockerfile_1_9_10_k8s] (2016-01-26)
 * [`1.9.9`][dockerfile_1_9_9] (2015-12-09)
@@ -36,7 +36,7 @@ $ docker run --rm sickp/alpine-nginx # nginx -g "daemon off;"
 
 ```bash
 $ docker run --rm sickp/alpine-nginx nginx -V
-nginx version: nginx/1.9.11
+nginx version: nginx/1.9.12
 built by gcc 5.3.0 (Alpine 5.3.0)
 built with OpenSSL 1.0.2f  28 Jan 2016
 TLS SNI support enabled
