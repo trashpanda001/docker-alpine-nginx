@@ -2,7 +2,7 @@
 set -e
 
 repo=sickp/alpine-nginx
-latest=1.9.11
+latest=1.9.12
 tags="${latest} ${latest}-k8s 1.9 mainline latest"
 
 for tag in ${tags}; do

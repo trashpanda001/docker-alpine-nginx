@@ -7,9 +7,10 @@ Tags with the `-k8s` suffix are built on [Alpine-Kubernetes][alpine_kubernetes],
 
 #### Tags
 
-* [`1.9.11`][dockerfile_1_9_11], [`1.9`][dockerfile_1_9_11], [`mainline`][dockerfile_1_9_11], [`latest`][dockerfile_1_9_11] (2016-02-09, [Changes][nginx_changes])
-* [`1.9.11-k8s`][dockerfile_1_9_11_k8s] (for Kubernetes)
-* [`1.9.10`][dockerfile_1_9_10], [`1.9.10-k8s`][dockerfile_1_9_10_k8s] (2016-01-26, [Changes][nginx_changes])
+* [`1.9.12`][dockerfile_1_9_12], [`1.9`][dockerfile_1_9_12], [`mainline`][dockerfile_1_9_12], [`latest`][dockerfile_1_9_12] (2016-02-24, [Changes][nginx_changes])
+* [`1.9.11-k8s`][dockerfile_1_9_12_k8s] (for Kubernetes)
+* [`1.9.11`][dockerfile_1_9_11], [`1.9.11-k8s`][dockerfile_1_9_11_k8s] (2016-02-09)
+* [`1.9.10`][dockerfile_1_9_10], [`1.9.10-k8s`][dockerfile_1_9_10_k8s] (2016-01-26)
 * [`1.9.9`][dockerfile_1_9_9] (2015-12-09)
 * [`1.9.8`][dockerfile_1_9_8] (2015-12-08)
 * [`1.9.7`][dockerfile_1_9_7] (2015-11-17)
@@ -19,13 +20,13 @@ Tags with the `-k8s` suffix are built on [Alpine-Kubernetes][alpine_kubernetes],
 
 ```bash
 $ docker run --rm sickp/alpine-nginx # nginx -g "daemon off;"
-2016/01/28 18:35:45 [notice] 1#1: using the "epoll" event method
-2016/01/28 18:35:45 [notice] 1#1: nginx/1.9.10
-2016/01/28 18:35:45 [notice] 1#1: built by gcc 5.3.0 (Alpine 5.3.0)
-2016/01/28 18:35:45 [notice] 1#1: OS: Linux 4.1.13-boot2docker
-2016/01/28 18:35:45 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
-2016/01/28 18:35:45 [notice] 1#1: start worker processes
-2016/01/28 18:35:45 [notice] 1#1: start worker process 6
+2016/02/25 00:29:32 [notice] 1#1: using the "epoll" event method
+2016/02/25 00:29:32 [notice] 1#1: nginx/1.9.12
+2016/02/25 00:29:32 [notice] 1#1: built by gcc 5.3.0 (Alpine 5.3.0)
+2016/02/25 00:29:32 [notice] 1#1: OS: Linux 4.1.18-boot2docker
+2016/02/25 00:29:32 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2016/02/25 00:29:32 [notice] 1#1: start worker processes
+2016/02/25 00:29:32 [notice] 1#1: start worker process 6
 ```
 
 
@@ -85,6 +86,7 @@ $ docker run --rm sickp/alpine-nginx cat /etc/alpine-release
 
 ### History
 
+- 2016-02-24 - Updated to Nginx 1.9.12.
 - 2016-02-09 - Updated to Nginx 1.9.11 (and added http_slice_module).
 - 2016-02-09 - Updated to OpenSSL 1.0.2f. Added support for ALPINE_NO_RESOLVER in 1.9.10-k8s.
 - 2016-01-27 - Added Kubernetes versions (-k8s), until Alpine Linux/musl adds DNS search support.
@@ -102,6 +104,8 @@ $ docker run --rm sickp/alpine-nginx cat /etc/alpine-release
 [dockerfile_1_9_10_k8s]: https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.9.10-k8s/Dockerfile
 [dockerfile_1_9_11]:     https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.9.11/Dockerfile
 [dockerfile_1_9_11_k8s]: https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.9.11-k8s/Dockerfile
+[dockerfile_1_9_12]:     https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.9.12/Dockerfile
+[dockerfile_1_9_12_k8s]: https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.9.12-k8s/Dockerfile
 [github_project]:        https://github.com/sickp/docker-alpine-nginx/
 [gliderlabs_alpine]:     https://hub.docker.com/r/gliderlabs/alpine/
 [nginx]:                 http://nginx.org/
