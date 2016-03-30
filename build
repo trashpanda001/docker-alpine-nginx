@@ -2,7 +2,7 @@
 set -e
 
 repo=sickp/alpine-nginx
-latest=1.9.12
+latest=1.9.13
 version=${1:-$latest}
 tags="1.9 mainline latest"
 
@@ -13,7 +13,7 @@ echo "=> Built ${repo}:${version}-k8s"
 
 if [[ $latest == $version ]]; then
   for tag in ${tags}; do
-    docker tag -f ${repo}:${version} ${repo}:${tag}
+    docker tag ${repo}:${version} ${repo}:${tag}
     echo "=> Tagged ${repo}:${tag}"
   done
 fi
