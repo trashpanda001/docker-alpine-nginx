@@ -1,11 +1,14 @@
-#!/bin/bash
-set -e
+#!/usr/bin/env ruby
+repo="sickp/alpine-nginx"
 
-repo=sickp/alpine-nginx
-latest=1.9.13
-tags="${latest} ${latest}-k8s 1.9 mainline latest"
+nginx_version = ARGV.first
+unless nginx_version =~ /\A\d+\.\d+\.\d+\z/
+  puts "Usage: push <nginx-version>"
+  puts "  <nginx-version> = X.Y.Z"
+  exit 1
+end
 
-for tag in ${tags}; do
-  docker push ${repo}:${tag}
-  echo "=> Pushed ${repo}:${tag}"
-done
+[ nginx_version, "#{nginx_version}-k8s", "1.9", "mainline", "latest" ].each do |tag|
+  system("docker push #{repo}:#{tag}") || abort
+  puts "Pushed #{repo}:#{tag}"
+end
