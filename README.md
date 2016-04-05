@@ -7,8 +7,8 @@ Tags with the `-k8s` suffix are built on [Alpine-Kubernetes][alpine_kubernetes],
 
 #### Tags
 
-* [`1.9.14`][dockerfile_1_9], [`1.9`][dockerfile_1_9], [`mainline`][dockerfile_1_9], [`latest`][dockerfile_1_9] (2016-04-05, [Changes][nginx_changes])
-* [`1.9.13-k8s`][dockerfile_1_9_k8s] (for Kubernetes)
+* `1.9.14`, `1.9`, `mainline`, `latest` (2016-04-05, [Dockerfile][dockerfile_1_9], [Changes][nginx_changes])
+* `1.9.13-k8s` ([Dockerfile][dockerfile_1_9_k8s] for Kubernetes)
 * `1.9.13`, `1.9.13-k8s` (2016-03-29)
 * `1.9.12`, `1.9.12-k8s` (2016-02-24)
 * `1.9.11`, `1.9.11-k8s` (2016-02-09)
