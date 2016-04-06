@@ -4,8 +4,7 @@ A lightweight [Nginx][nginx] [Docker image][dockerhub_project] built atop of [Al
 
 Tags with the `-k8s` suffix are built on [Alpine-Kubernetes][alpine_kubernetes], an image for Kubernetes and other Docker cluster environments that use DNS-based service discovery. It adds the necessary `search` domain support for DNS resolution.
 
-
-#### Tags
+#### Mainline Branch Tags
 
 * `1.9.14`, `1.9`, `mainline`, `latest` (2016-04-05, [Dockerfile][dockerfile_1_9], [Changes][nginx_changes])
 * `1.9.13-k8s` ([Dockerfile][dockerfile_1_9_k8s] for Kubernetes)
@@ -17,11 +16,15 @@ Tags with the `-k8s` suffix are built on [Alpine-Kubernetes][alpine_kubernetes],
 * `1.9.8` (2015-12-08)
 * `1.9.7` (2015-11-17)
 
+#### Stable Branch Tags
+
+* `1.8.1`, `1.8`, `stable` (2016-04-05, [Dockerfile][dockerfile_1_8], [Changes][nginx_changes_1_8])
+* `1.8.1-k8s` ([Dockerfile][dockerfile_1_8_k8s] for Kubernetes)
 
 ### Default Usage
 
 ```bash
-$ docker run --rm sickp/alpine-nginx # nginx -g "daemon off;"
+$ docker run --rm sickp/alpine-nginx:1.9.14 # nginx -g "daemon off;"
 2016/04/05 18:44:42 [notice] 1#1: using the "epoll" event method
 2016/04/05 18:44:42 [notice] 1#1: nginx/1.9.14
 2016/04/05 18:44:42 [notice] 1#1: built by gcc 5.3.0 (Alpine 5.3.0)
@@ -31,29 +34,28 @@ $ docker run --rm sickp/alpine-nginx # nginx -g "daemon off;"
 2016/04/05 18:44:42 [notice] 1#1: start worker process 5
 ```
 
-
 ### Configuration
 
 [Nginx][nginx] is compiled from source using the same [configure arguments][nginx_configure] as the official, pre-built packages.
 
 ```bash
-$ docker run --rm sickp/alpine-nginx nginx -V
+$ docker run --rm sickp/alpine-nginx:1.9.14 nginx -V
 nginx version: nginx/1.9.14
 built by gcc 5.3.0 (Alpine 5.3.0)
 built with OpenSSL 1.0.2g  1 Mar 2016
 TLS SNI support enabled
-configure arguments: --prefix=/etc/nginx --sbin-path=/usr/sbin/nginx --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --pid-path=/var/run/nginx.pid --lock-path=/var/run/nginx.lock --http-client-body-temp-path=/var/cache/nginx/client_temp --http-proxy-temp-path=/var/cache/nginx/proxy_temp --http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp --http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp --http-scgi-temp-path=/var/cache/nginx/scgi_temp --user=nginx --group=nginx --with-http_ssl_module --with-http_realip_module --with-http_addition_module --with-http_sub_module --with-http_dav_module --with-http_flv_module --with-http_mp4_module --with-http_gunzip_module --with-http_gzip_static_module --with-http_random_index_module --with-http_secure_link_module --with-http_stub_status_module --with-http_auth_request_module --with-mail --with-mail_ssl_module --with-file-aio --with-ipv6 --with-threads --with-stream --with-stream_ssl_module --with-http_slice_module --with-http_v2_module
+configure arguments: --prefix=/etc/nginx --sbin-path=/usr/sbin/nginx --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --pid-path=/var/run/nginx.pid --lock-path=/var/run/nginx.lock --http-client-body-temp-path=/var/cache/nginx/client_temp --http-proxy-temp-path=/var/cache/nginx/proxy_temp --http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp --http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp --http-scgi-temp-path=/var/cache/nginx/scgi_temp --user=nginx --group=nginx --with-http_ssl_module --with-http_realip_module --with-http_addition_module --with-http_sub_module --with-http_dav_module --with-http_flv_module --with-http_mp4_module --with-http_gunzip_module --with-http_gzip_static_module --with-http_random_index_module --with-http_secure_link_module --with-http_stub_status_module --with-http_auth_request_module --with-mail --with-mail_ssl_module --with-file-aio --with-http_v2_module --with-ipv6 --with-threads --with-stream --with-stream_ssl_module --with-http_slice_module
 
-$ docker run --rm -it sickp/alpine-nginx openssl version
+$ docker run --rm -it sickp/alpine-nginx:1.9.14 openssl version
 OpenSSL 1.0.2g  1 Mar 2016
 
-$ docker run --rm sickp/alpine-nginx cat /etc/alpine-release
+$ docker run --rm sickp/alpine-nginx:1.9.14 cat /etc/alpine-release
 3.3.3
 ```
 
 ### History
 
-- 2016-04-05 - Updated to Nginx 1.9.14, Alpine Linux 3.3.3.
+- 2016-04-05 - Updated to Nginx 1.9.14, Alpine Linux 3.3.3. Added stable branch Nginx 1.8.1.
 - 2016-03-30 - Updated to Nginx 1.9.13, OpenSSL 1.0.2g.
 - 2016-02-24 - Updated to Nginx 1.9.12.
 - 2016-02-09 - Updated to Nginx 1.9.11 (and added http_slice_module).
@@ -67,6 +69,8 @@ $ docker run --rm sickp/alpine-nginx cat /etc/alpine-release
 [alpine_kubernetes]:  https://hub.docker.com/r/janeczku/alpine-kubernetes/
 [alpine_linux]:       https://hub.docker.com/_/alpine/
 [dockerhub_project]:  https://hub.docker.com/r/sickp/alpine-nginx/
+[dockerfile_1_8]:     https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.8.1/Dockerfile
+[dockerfile_1_8_k8s]: https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.8.1-k8s/Dockerfile
 [dockerfile_1_9]:     https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.9.14/Dockerfile
 [dockerfile_1_9_k8s]: https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.9.14-k8s/Dockerfile
 [github_project]:     https://github.com/sickp/docker-alpine-nginx/

@@ -3,30 +3,41 @@ require "erb"
 repo="sickp/alpine-nginx"
 
 nginx_version = ARGV.first
-unless nginx_version =~ /\A\d+\.\d+\.\d+\z/
+unless nginx_version =~ /\A1\.[8|9]\.\d+\z/
   puts "Usage: build <nginx-version>"
-  puts "  <nginx-version> = X.Y.Z"
+  puts "  <nginx-version> = 1.[8|9].xx"
   exit 1
 end
-template = ERB.new(File.read(File.join(File.dirname(__FILE__), "templates", "Dockerfile.erb")))
+if nginx_version.start_with?("1.9.")
+  branch = "mainline"
+  tags = %w(1.9 mainline latest)
+else
+  branch = "stable"
+  tags = %w(1.8 stable)
+end
 
+template = ERB.new(File.read(File.join(File.dirname(__FILE__), "templates", "Dockerfile.#{branch}.erb")))
+
+# Plain version
 base_image = "alpine:3.3"
 dockerfile = File.join(File.dirname(__FILE__), "versions", nginx_version, "Dockerfile")
 Dir.mkdir(File.dirname(dockerfile)) rescue nil
 File.write(dockerfile, template.result(binding))
 
+system("docker build -t #{repo}:#{nginx_version} --pull versions/#{nginx_version}") || abort
+puts "Built #{repo}:#{nginx_version}"
+
+# Kubernetes version
 base_image = "janeczku/alpine-kubernetes:3.3"
 dockerfile_k8s = File.join(File.dirname(__FILE__), "versions", "#{nginx_version}-k8s", "Dockerfile")
 Dir.mkdir(File.dirname(dockerfile_k8s)) rescue nil
 File.write(dockerfile_k8s, template.result(binding))
 
-system("docker build -t #{repo}:#{nginx_version} --pull versions/#{nginx_version}") || abort
-puts "Built #{repo}:#{nginx_version}"
-
 system("docker build -t #{repo}:#{nginx_version}-k8s --pull versions/#{nginx_version}-k8s") || abort
 puts "Built #{repo}:#{nginx_version}-k8s"
 
-%w(1.9 mainline latest).each do |tag|
+# Tag
+tags.each do |tag|
   system("docker tag #{repo}:#{nginx_version} #{repo}:#{tag}") || abort
   puts "Tagged #{repo}:#{tag}"
 end

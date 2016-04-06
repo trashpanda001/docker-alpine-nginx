@@ -1,4 +1,4 @@
-FROM <%= base_image %>
+FROM alpine:3.3
 MAINTAINER Adrian B. Danieli "https://github.com/sickp"
 
 RUN \
@@ -6,9 +6,9 @@ RUN \
   runtime_pkgs="ca-certificates openssl pcre zlib" && \
   apk --update add ${build_pkgs} ${runtime_pkgs} && \
   cd /tmp && \
-  wget http://nginx.org/download/nginx-<%= nginx_version %>.tar.gz && \
-  tar xzf nginx-<%= nginx_version %>.tar.gz && \
-  cd /tmp/nginx-<%= nginx_version %> && \
+  wget http://nginx.org/download/nginx-1.8.1.tar.gz && \
+  tar xzf nginx-1.8.1.tar.gz && \
+  cd /tmp/nginx-1.8.1 && \
   ./configure \
     --prefix=/etc/nginx \
     --sbin-path=/usr/sbin/nginx \
@@ -40,12 +40,8 @@ RUN \
     --with-mail \
     --with-mail_ssl_module \
     --with-file-aio \
-    --with-ipv6 \
-    --with-threads \
-    --with-stream \
-    --with-stream_ssl_module \
-    --with-http_slice_module \
-    --with-http_v2_module && \
+    --with-http_spdy_module \
+    --with-ipv6 && \
   make && \
   make install && \
   sed -i -e 's/#access_log  logs\/access.log  main;/access_log \/dev\/stdout;/' -e 's/#error_log  logs\/error.log  notice;/error_log stderr notice;/' /etc/nginx/nginx.conf && \

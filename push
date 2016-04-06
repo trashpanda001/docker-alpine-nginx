@@ -2,13 +2,21 @@
 repo="sickp/alpine-nginx"
 
 nginx_version = ARGV.first
-unless nginx_version =~ /\A\d+\.\d+\.\d+\z/
-  puts "Usage: push <nginx-version>"
-  puts "  <nginx-version> = X.Y.Z"
+unless nginx_version =~ /\A1\.[8|9]\.\d+\z/
+  puts "Usage: build <nginx-version>"
+  puts "  <nginx-version> = 1.[8|9].xx"
   exit 1
 end
+if nginx_version.start_with?("1.9.")
+  tags = %w(1.9 mainline latest)
+else
+  tags = %w(1.8 stable)
+end
 
-[ nginx_version, "#{nginx_version}-k8s", "1.9", "mainline", "latest" ].each do |tag|
+tags.unshift("#{nginx_version}-k8s")
+tags.unshift(nginx_version)
+
+tags.each do |tag|
   system("docker push #{repo}:#{tag}") || abort
   puts "Pushed #{repo}:#{tag}"
 end
