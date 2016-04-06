@@ -7,7 +7,7 @@ Tags with the `-k8s` suffix are built on [Alpine-Kubernetes][alpine_kubernetes],
 #### Mainline Branch Tags
 
 * `1.9.14`, `1.9`, `mainline`, `latest` (2016-04-05, [Dockerfile][dockerfile_1_9], [Changes][nginx_changes])
-* `1.9.13-k8s` ([Dockerfile][dockerfile_1_9_k8s] for Kubernetes)
+* `1.9.14-k8s` ([Dockerfile][dockerfile_1_9_k8s] for Kubernetes)
 * `1.9.13`, `1.9.13-k8s` (2016-03-29)
 * `1.9.12`, `1.9.12-k8s` (2016-02-24)
 * `1.9.11`, `1.9.11-k8s` (2016-02-09)
@@ -18,7 +18,7 @@ Tags with the `-k8s` suffix are built on [Alpine-Kubernetes][alpine_kubernetes],
 
 #### Stable Branch Tags
 
-* `1.8.1`, `1.8`, `stable` (2016-04-05, [Dockerfile][dockerfile_1_8], [Changes][nginx_changes_1_8])
+* `1.8.1`, `1.8`, `stable` (2016-01-26, [Dockerfile][dockerfile_1_8], [Changes][nginx_changes_1_8])
 * `1.8.1-k8s` ([Dockerfile][dockerfile_1_8_k8s] for Kubernetes)
 
 ### Default Usage
@@ -76,4 +76,5 @@ $ docker run --rm sickp/alpine-nginx:1.9.14 cat /etc/alpine-release
 [github_project]:     https://github.com/sickp/docker-alpine-nginx/
 [nginx]:              http://nginx.org/
 [nginx_changes]:      http://nginx.org/en/CHANGES
+[nginx_changes_1_8]:  http://nginx.org/en/CHANGES-1.8
 [nginx_configure]:    http://nginx.org/en/linux_packages.html#mainline
