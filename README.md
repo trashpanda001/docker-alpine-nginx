@@ -6,8 +6,9 @@ Tags with the `-k8s` suffix are built on [Alpine-Kubernetes][alpine_kubernetes],
 
 #### Mainline Branch Tags
 
-* `1.9.14`, `1.9`, `mainline`, `latest` (2016-04-05, [Dockerfile][dockerfile_1_9], [Changes][nginx_changes])
-* `1.9.14-k8s` ([Dockerfile][dockerfile_1_9_k8s] for Kubernetes)
+* `1.9.15`, `1.9`, `mainline`, `latest` (2016-04-19, [Dockerfile][dockerfile_1_9], [Changes][nginx_changes])
+* `1.9.15-k8s` ([Dockerfile][dockerfile_1_9_k8s] for Kubernetes)
+* `1.9.14`, `1.9.14-k8s` (2016-04-05)
 * `1.9.13`, `1.9.13-k8s` (2016-03-29)
 * `1.9.12`, `1.9.12-k8s` (2016-02-24)
 * `1.9.11`, `1.9.11-k8s` (2016-02-09)
@@ -24,14 +25,14 @@ Tags with the `-k8s` suffix are built on [Alpine-Kubernetes][alpine_kubernetes],
 ### Default Usage
 
 ```bash
-$ docker run --rm sickp/alpine-nginx:1.9.14 # nginx -g "daemon off;"
-2016/04/05 18:44:42 [notice] 1#1: using the "epoll" event method
-2016/04/05 18:44:42 [notice] 1#1: nginx/1.9.14
-2016/04/05 18:44:42 [notice] 1#1: built by gcc 5.3.0 (Alpine 5.3.0)
-2016/04/05 18:44:42 [notice] 1#1: OS: Linux 4.1.19-boot2docker
-2016/04/05 18:44:42 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
-2016/04/05 18:44:42 [notice] 1#1: start worker processes
-2016/04/05 18:44:42 [notice] 1#1: start worker process 5
+$ docker run --rm sickp/alpine-nginx:1.9.15 # nginx -g "daemon off;"
+2016/04/21 17:28:45 [notice] 1#1: using the "epoll" event method
+2016/04/21 17:28:45 [notice] 1#1: nginx/1.9.15
+2016/04/21 17:28:45 [notice] 1#1: built by gcc 5.3.0 (Alpine 5.3.0)
+2016/04/21 17:28:45 [notice] 1#1: OS: Linux 4.1.19-boot2docker
+2016/04/21 17:28:45 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2016/04/21 17:28:45 [notice] 1#1: start worker processes
+2016/04/21 17:28:45 [notice] 1#1: start worker process 6
 ```
 
 ### Configuration
@@ -39,8 +40,8 @@ $ docker run --rm sickp/alpine-nginx:1.9.14 # nginx -g "daemon off;"
 [Nginx][nginx] is compiled from source using the same [configure arguments][nginx_configure] as the official, pre-built packages.
 
 ```bash
-$ docker run --rm sickp/alpine-nginx:1.9.14 nginx -V
-nginx version: nginx/1.9.14
+$ docker run --rm sickp/alpine-nginx:1.9.15 nginx -V
+nginx version: nginx/1.9.15
 built by gcc 5.3.0 (Alpine 5.3.0)
 built with OpenSSL 1.0.2g  1 Mar 2016
 TLS SNI support enabled
@@ -55,6 +56,7 @@ $ docker run --rm sickp/alpine-nginx:1.9.14 cat /etc/alpine-release
 
 ### History
 
+- 2016-04-21 - Updated to Nginx 1.9.15.
 - 2016-04-05 - Updated to Nginx 1.9.14, Alpine Linux 3.3.3. Added stable branch Nginx 1.8.1.
 - 2016-03-30 - Updated to Nginx 1.9.13, OpenSSL 1.0.2g.
 - 2016-02-24 - Updated to Nginx 1.9.12.
@@ -71,8 +73,8 @@ $ docker run --rm sickp/alpine-nginx:1.9.14 cat /etc/alpine-release
 [dockerhub_project]:  https://hub.docker.com/r/sickp/alpine-nginx/
 [dockerfile_1_8]:     https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.8.1/Dockerfile
 [dockerfile_1_8_k8s]: https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.8.1-k8s/Dockerfile
-[dockerfile_1_9]:     https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.9.14/Dockerfile
-[dockerfile_1_9_k8s]: https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.9.14-k8s/Dockerfile
+[dockerfile_1_9]:     https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.9.15/Dockerfile
+[dockerfile_1_9_k8s]: https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.9.15-k8s/Dockerfile
 [github_project]:     https://github.com/sickp/docker-alpine-nginx/
 [nginx]:              http://nginx.org/
 [nginx_changes]:      http://nginx.org/en/CHANGES
