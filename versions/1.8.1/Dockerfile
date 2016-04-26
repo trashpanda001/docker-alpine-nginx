@@ -1,3 +1,5 @@
+# Nginx 1.8.x - Legacy version
+
 FROM alpine:3.3
 MAINTAINER Adrian B. Danieli "https://github.com/sickp"
 

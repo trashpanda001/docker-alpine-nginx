@@ -3,17 +3,20 @@ require "erb"
 repo="sickp/alpine-nginx"
 
 nginx_version = ARGV.first
-unless nginx_version =~ /\A1\.[8|9]\.\d+\z/
-  puts "Usage: build <nginx-version>"
-  puts "  <nginx-version> = 1.[8|9].xx"
-  exit 1
-end
-if nginx_version.start_with?("1.9.")
+case nginx_version
+when /\A1\.10\.\d+\z/
+  branch = "stable"
+  tags = %w(1.10 stable)
+when /\A1\.9\.\d+\z/
   branch = "mainline"
   tags = %w(1.9 mainline latest)
+when /\A1\.8\.\d+\z/
+  branch = "legacy"
+  tags = %w(1.8 legacy)
 else
-  branch = "stable"
-  tags = %w(1.8 stable)
+  puts "Usage: build <nginx-version>"
+  puts "  <nginx-version> = 1.8.x | 1.9.x | 1.11.x"
+  exit 1
 end
 
 template = ERB.new(File.read(File.join(File.dirname(__FILE__), "templates", "Dockerfile.#{branch}.erb")))
@@ -40,4 +43,6 @@ puts "Built #{repo}:#{nginx_version}-k8s"
 tags.each do |tag|
   system("docker tag #{repo}:#{nginx_version} #{repo}:#{tag}") || abort
   puts "Tagged #{repo}:#{tag}"
+  system("docker tag #{repo}:#{nginx_version}-k8s #{repo}:#{tag}-k8s") || abort
+  puts "Tagged #{repo}:#{tag}-k8s"
 end

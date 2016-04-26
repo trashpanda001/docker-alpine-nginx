@@ -1,6 +1,6 @@
-# Nginx 1.9.x - Mainline version
+# Nginx 1.10.x - Stable version
 
-FROM janeczku/alpine-kubernetes:3.3
+FROM alpine:3.3
 MAINTAINER Adrian B. Danieli "https://github.com/sickp"
 
 RUN \
@@ -8,9 +8,9 @@ RUN \
   runtime_pkgs="ca-certificates openssl pcre zlib" && \
   apk --update add ${build_pkgs} ${runtime_pkgs} && \
   cd /tmp && \
-  wget http://nginx.org/download/nginx-1.9.15.tar.gz && \
-  tar xzf nginx-1.9.15.tar.gz && \
-  cd /tmp/nginx-1.9.15 && \
+  wget http://nginx.org/download/nginx-1.10.0.tar.gz && \
+  tar xzf nginx-1.10.0.tar.gz && \
+  cd /tmp/nginx-1.10.0 && \
   ./configure \
     --prefix=/etc/nginx \
     --sbin-path=/usr/sbin/nginx \

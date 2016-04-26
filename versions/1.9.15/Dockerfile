@@ -1,3 +1,5 @@
+# Nginx 1.9.x - Mainline version
+
 FROM alpine:3.3
 MAINTAINER Adrian B. Danieli "https://github.com/sickp"
 

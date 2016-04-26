@@ -1,13 +1,18 @@
 ### Alpine Linux Nginx
 
-A lightweight [Nginx][nginx] [Docker image][dockerhub_project] built atop of [Alpine Linux][alpine_linux]. Available on [GitHub][github_project].
+A lightweight [Nginx][nginx] [Docker image][dockerhub_project] built from source atop [Alpine Linux][alpine_linux]. Available on [GitHub][github_project].
 
 Tags with the `-k8s` suffix are built on [Alpine-Kubernetes][alpine_kubernetes], an image for Kubernetes and other Docker cluster environments that use DNS-based service discovery. It adds the necessary `search` domain support for DNS resolution.
 
-#### Mainline Branch Tags
+#### Stable 1.10.x Branch Tags
+
+* `1.10.0`, `1.10`, `stable` (2016-04-26, [Dockerfile][dockerfile_1_10], [Changes][nginx_changes_1_10])
+* `1.10.0-k8s`, `1.10-k8s`, `stable-k8s` ([Dockerfile][dockerfile_1_10_k8s] for Kubernetes)
+
+#### Mainline 1.9.x Branch Tags
 
 * `1.9.15`, `1.9`, `mainline`, `latest` (2016-04-19, [Dockerfile][dockerfile_1_9], [Changes][nginx_changes])
-* `1.9.15-k8s` ([Dockerfile][dockerfile_1_9_k8s] for Kubernetes)
+* `1.9.15-k8s`, `1.9-k8s`, `mainline-k8s`, `latest-k8s` ([Dockerfile][dockerfile_1_9_k8s] for Kubernetes)
 * `1.9.14`, `1.9.14-k8s` (2016-04-05)
 * `1.9.13`, `1.9.13-k8s` (2016-03-29)
 * `1.9.12`, `1.9.12-k8s` (2016-02-24)
@@ -17,10 +22,10 @@ Tags with the `-k8s` suffix are built on [Alpine-Kubernetes][alpine_kubernetes],
 * `1.9.8` (2015-12-08)
 * `1.9.7` (2015-11-17)
 
-#### Stable Branch Tags
+#### Legacy 1.8.x Branch Tags
 
-* `1.8.1`, `1.8`, `stable` (2016-01-26, [Dockerfile][dockerfile_1_8], [Changes][nginx_changes_1_8])
-* `1.8.1-k8s` ([Dockerfile][dockerfile_1_8_k8s] for Kubernetes)
+* `1.8.1`, `1.8`, `legacy` (2016-01-26, [Dockerfile][dockerfile_1_8], [Changes][nginx_changes_1_8])
+* `1.8.1-k8s`, `1.8-k8s`, `legacy-k8s` ([Dockerfile][dockerfile_1_8_k8s] for Kubernetes)
 
 ### Default Usage
 
@@ -56,6 +61,7 @@ $ docker run --rm sickp/alpine-nginx:1.9.14 cat /etc/alpine-release
 
 ### History
 
+- 2016-04-26 - Added new stable branch Nginx 1.10.0. Moved old stable to legacy branch. Added more `-k8s` tags.
 - 2016-04-21 - Updated to Nginx 1.9.15.
 - 2016-04-05 - Updated to Nginx 1.9.14, Alpine Linux 3.3.3. Added stable branch Nginx 1.8.1.
 - 2016-03-30 - Updated to Nginx 1.9.13, OpenSSL 1.0.2g.
@@ -68,15 +74,18 @@ $ docker run --rm sickp/alpine-nginx:1.9.14 cat /etc/alpine-release
 - 2015-12-10 - Updated to 1.9.9.
 - 2015-11-27 - Initial version.
 
-[alpine_kubernetes]:  https://hub.docker.com/r/janeczku/alpine-kubernetes/
-[alpine_linux]:       https://hub.docker.com/_/alpine/
-[dockerhub_project]:  https://hub.docker.com/r/sickp/alpine-nginx/
-[dockerfile_1_8]:     https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.8.1/Dockerfile
-[dockerfile_1_8_k8s]: https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.8.1-k8s/Dockerfile
-[dockerfile_1_9]:     https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.9.15/Dockerfile
-[dockerfile_1_9_k8s]: https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.9.15-k8s/Dockerfile
-[github_project]:     https://github.com/sickp/docker-alpine-nginx/
-[nginx]:              http://nginx.org/
-[nginx_changes]:      http://nginx.org/en/CHANGES
-[nginx_changes_1_8]:  http://nginx.org/en/CHANGES-1.8
-[nginx_configure]:    http://nginx.org/en/linux_packages.html#mainline
+[alpine_kubernetes]:   https://hub.docker.com/r/janeczku/alpine-kubernetes/
+[alpine_linux]:        https://hub.docker.com/_/alpine/
+[dockerhub_project]:   https://hub.docker.com/r/sickp/alpine-nginx/
+[dockerfile_1_8]:      https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.8.1/Dockerfile
+[dockerfile_1_8_k8s]:  https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.8.1-k8s/Dockerfile
+[dockerfile_1_9]:      https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.9.15/Dockerfile
+[dockerfile_1_9_k8s]:  https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.9.15-k8s/Dockerfile
+[dockerfile_1_10]:     https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.9.15/Dockerfile
+[dockerfile_1_10_k8s]: https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.9.15-k8s/Dockerfile
+[github_project]:      https://github.com/sickp/docker-alpine-nginx/
+[nginx]:               http://nginx.org/
+[nginx_changes]:       http://nginx.org/en/CHANGES
+[nginx_changes_1_8]:   http://nginx.org/en/CHANGES-1.8
+[nginx_changes_1_10]:  http://nginx.org/en/CHANGES-1.10
+[nginx_configure]:     http://nginx.org/en/linux_packages.html#mainline
