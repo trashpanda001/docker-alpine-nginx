@@ -1,4 +1,4 @@
-# Nginx 1.9.x - Mainline version
+# Nginx 1.9.15 - Mainline version
 
 FROM janeczku/alpine-kubernetes:3.3
 MAINTAINER Adrian B. Danieli "https://github.com/sickp"

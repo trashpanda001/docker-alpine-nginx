@@ -81,8 +81,8 @@ $ docker run --rm sickp/alpine-nginx:1.9.14 cat /etc/alpine-release
 [dockerfile_1_8_k8s]:  https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.8.1-k8s/Dockerfile
 [dockerfile_1_9]:      https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.9.15/Dockerfile
 [dockerfile_1_9_k8s]:  https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.9.15-k8s/Dockerfile
-[dockerfile_1_10]:     https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.9.15/Dockerfile
-[dockerfile_1_10_k8s]: https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.9.15-k8s/Dockerfile
+[dockerfile_1_10]:     https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.10.0/Dockerfile
+[dockerfile_1_10_k8s]: https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.10.0-k8s/Dockerfile
 [github_project]:      https://github.com/sickp/docker-alpine-nginx/
 [nginx]:               http://nginx.org/
 [nginx_changes]:       http://nginx.org/en/CHANGES

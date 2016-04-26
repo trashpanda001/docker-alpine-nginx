@@ -1,4 +1,4 @@
-# Nginx 1.10.x - Stable version
+# Nginx 1.10.0 - Stable version
 
 FROM janeczku/alpine-kubernetes:3.3
 MAINTAINER Adrian B. Danieli "https://github.com/sickp"
