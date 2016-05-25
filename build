@@ -4,18 +4,18 @@ repo="sickp/alpine-nginx"
 
 nginx_version = ARGV.first
 case nginx_version
+when /\A1\.11\.\d+\z/
+  branch = "mainline"
+  tags = %w(1.11 mainline latest)
 when /\A1\.10\.\d+\z/
   branch = "stable"
   tags = %w(1.10 stable)
-when /\A1\.9\.\d+\z/
-  branch = "mainline"
-  tags = %w(1.9 mainline latest)
 when /\A1\.8\.\d+\z/
   branch = "legacy"
   tags = %w(1.8 legacy)
 else
   puts "Usage: build <nginx-version>"
-  puts "  <nginx-version> = 1.8.x | 1.9.x | 1.11.x"
+  puts "  <nginx-version> = 1.8.x | 1.10.x | 1.11.x"
   exit 1
 end
 
