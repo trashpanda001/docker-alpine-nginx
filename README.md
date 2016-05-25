@@ -65,7 +65,7 @@ $ docker run --rm sickp/alpine-nginx:1.11.0 cat /etc/alpine-release
 
 ### History
 
-- 2016-05-25 - Added new mainline branch Nginx 1.11.0, Open SSL 1.0.2h.
+- 2016-05-25 - Added new mainline branch Nginx 1.11.0, OpenSSL 1.0.2h.
 - 2016-04-26 - Added new stable branch Nginx 1.10.0. Moved old stable to legacy branch. Added more `-k8s` tags.
 - 2016-04-21 - Updated to Nginx 1.9.15.
 - 2016-04-05 - Updated to Nginx 1.9.14, Alpine Linux 3.3.3. Added stable branch Nginx 1.8.1.
