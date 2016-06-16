@@ -20,6 +20,4 @@ tags.unshift(nginx_version)
 tags.each do |tag|
   system("docker push #{repo}:#{tag}") || abort
   puts "Pushed #{repo}:#{tag}"
-  system("docker push #{repo}:#{tag}-k8s") || abort
-  puts "Pushed #{repo}:#{tag}-k8s"
 end

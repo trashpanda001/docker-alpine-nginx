@@ -2,48 +2,46 @@
 
 A lightweight [Nginx][nginx] [Docker image][dockerhub_project] built from source atop [Alpine Linux][alpine_linux]. Available on [GitHub][github_project].
 
-Tags with the `-k8s` suffix are built on [Alpine-Kubernetes][alpine_kubernetes], an image for Kubernetes and other Docker cluster environments that use DNS-based service discovery. It adds the necessary `search` domain support for DNS resolution.
+##### Kubernetes Note
+
+> If you're running Kubernetes >=1.2.0 (on your _nodes_), you should now use the normal (non-`-k8s`) version tags on each branch. These tags are built on Alpine Linux 3.4 which adds the necessary `search` support for DNS-based service discovery. This version of Kubernetes defines a single `nameserver` in `/etc/resolv.conf` and specifies `dnsPolicy=ClusterFirst` by default on all pods. Which means, things should finally work for Alpine Linux.
 
 #### Mainline 1.11.x Branch Tags
 
 * `1.11.1`, `1.11`, `mainline`, `latest` (2016-05-31, [Dockerfile][dockerfile_1_11], [Changes][nginx_changes])
-* `1.11.1-k8s`, `1.11-k8s`, `mainline-k8s`, `latest-k8s` ([Dockerfile][dockerfile_1_11_k8s] for Kubernetes)
-* `1.11.0`, `1.11.0-k8s` (2016-05-24)
+* `1.11.0` (2016-05-24)
 
 #### Stable 1.10.x Branch Tags
 
 * `1.10.1`, `1.10`, `stable` (2016-05-31, [Dockerfile][dockerfile_1_10], [Changes][nginx_changes_1_10])
-* `1.10.1-k8s`, `1.10-k8s`, `stable-k8s` ([Dockerfile][dockerfile_1_10_k8s] for Kubernetes)
-* `1.10.0`, `1.10.0-k8s` (2016-04-26)
-
-#### Old Mainline 1.9.x Branch Tags
-
-* `1.9.15`, `1.9.15-k8s`, `1.9`, `1.9-k8s` (2016-04-19)
-* `1.9.14`, `1.9.14-k8s` (2016-04-05)
-* `1.9.13`, `1.9.13-k8s` (2016-03-29)
-* `1.9.12`, `1.9.12-k8s` (2016-02-24)
-* `1.9.11`, `1.9.11-k8s` (2016-02-09)
-* `1.9.10`, `1.9.10-k8s` (2016-01-26)
-* `1.9.9` (2015-12-09)
-* `1.9.8` (2015-12-08)
-* `1.9.7` (2015-11-17)
+* `1.10.0` (2016-04-26)
 
 #### Legacy 1.8.x Branch Tags
 
 * `1.8.1`, `1.8`, `legacy` (2016-01-26, [Dockerfile][dockerfile_1_8], [Changes][nginx_changes_1_8])
-* `1.8.1-k8s`, `1.8-k8s`, `legacy-k8s` ([Dockerfile][dockerfile_1_8_k8s] for Kubernetes)
+
+#### Kubernetes <1.2.0
+
+Tags with the `-k8s` suffix are built on [Alpine-Kubernetes 3.3][alpine_kubernetes], an image for Kubernetes and other Docker cluster environments that use DNS-based service discovery. It adds the necessary `search` domain support for DNS resolution.
+
+ * `1.11.1-k8s`, `1.11-k8s`, `mainline-k8s`, `latest-k8s` ([Dockerfile][dockerfile_1_11_k8s] for Kubernetes)
+ * `1.11.0-k8s` (2016-05-24)
+ * `1.10.1-k8s`, `1.10-k8s`, `stable-k8s` ([Dockerfile][dockerfile_1_10_k8s] for Kubernetes)
+ * `1.10.0-k8s` (2016-04-26)
+ * `1.8.1-k8s`, `1.8-k8s`, `legacy-k8s` ([Dockerfile][dockerfile_1_8_k8s] for Kubernetes)
+
 
 ### Default Usage
 
 ```bash
 $ docker run --rm sickp/alpine-nginx:1.11.1 # nginx -g "daemon off;"
-2016/06/01 16:32:37 [notice] 1#1: using the "epoll" event method
-2016/06/01 16:32:37 [notice] 1#1: nginx/1.11.1
-2016/06/01 16:32:37 [notice] 1#1: built by gcc 5.3.0 (Alpine 5.3.0)
-2016/06/01 16:32:37 [notice] 1#1: OS: Linux 4.1.19-boot2docker
-2016/06/01 16:32:37 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
-2016/06/01 16:32:37 [notice] 1#1: start worker processes
-2016/06/01 16:32:37 [notice] 1#1: start worker process 5
+2016/06/16 02:13:26 [notice] 1#1: using the "epoll" event method
+2016/06/16 02:13:26 [notice] 1#1: nginx/1.11.1
+2016/06/16 02:13:26 [notice] 1#1: built by gcc 5.3.0 (Alpine 5.3.0)
+2016/06/16 02:13:26 [notice] 1#1: OS: Linux 4.4.12-moby
+2016/06/16 02:13:26 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2016/06/16 02:13:26 [notice] 1#1: start worker processes
+2016/06/16 02:13:26 [notice] 1#1: start worker process 6
 ```
 
 ### Configuration
@@ -62,11 +60,12 @@ $ docker run --rm -it sickp/alpine-nginx:1.11.1 openssl version
 OpenSSL 1.0.2h  3 May 2016
 
 $ docker run --rm sickp/alpine-nginx:1.11.1 cat /etc/alpine-release
-3.3.3
+3.4.0
 ```
 
 ### History
 
+- 2016-06-15 - Updated 1.11.x, 1.10.x, 1.8.x to Alpine Linux 3.4.0 (with `search` support for Kubernetes >=1.2.0).
 - 2016-06-01 - Updated to Nginx 1.11.1 (mainline) and Nginx 1.10.1 (stable).
 - 2016-05-25 - Added new mainline branch Nginx 1.11.0, OpenSSL 1.0.2h.
 - 2016-04-26 - Added new stable branch Nginx 1.10.0. Moved old stable to legacy branch. Added more `-k8s` tags.

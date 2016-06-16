@@ -1,17 +1,20 @@
 # Nginx 1.11.0 - Mainline version
 
-FROM alpine:3.3
+FROM alpine:3.4
 MAINTAINER Adrian B. Danieli "https://github.com/sickp"
 
-RUN \
-  build_pkgs="build-base linux-headers openssl-dev pcre-dev wget zlib-dev" && \
-  runtime_pkgs="ca-certificates openssl pcre zlib" && \
-  apk --update add ${build_pkgs} ${runtime_pkgs} && \
-  cd /tmp && \
-  wget http://nginx.org/download/nginx-1.11.0.tar.gz && \
-  tar xzf nginx-1.11.0.tar.gz && \
-  cd /tmp/nginx-1.11.0 && \
-  ./configure \
+EXPOSE 80 443
+CMD ["nginx", "-g", "daemon off;"]
+VOLUME ["/var/cache/nginx"]
+
+RUN build_pkgs="build-base linux-headers openssl-dev pcre-dev wget zlib-dev" \
+  && runtime_pkgs="ca-certificates openssl pcre zlib" \
+  && apk --update add ${build_pkgs} ${runtime_pkgs} \
+  && cd /tmp \
+  && wget http://nginx.org/download/nginx-1.11.0.tar.gz \
+  && tar xzf nginx-1.11.0.tar.gz \
+  && cd /tmp/nginx-1.11.0 \
+  && ./configure \
     --prefix=/etc/nginx \
     --sbin-path=/usr/sbin/nginx \
     --conf-path=/etc/nginx/nginx.conf \
@@ -47,16 +50,11 @@ RUN \
     --with-mail_ssl_module \
     --with-file-aio \
     --with-http_v2_module \
-    --with-ipv6 && \
-  make && \
-  make install && \
-  sed -i -e 's/#access_log  logs\/access.log  main;/access_log \/dev\/stdout;/' -e 's/#error_log  logs\/error.log  notice;/error_log stderr notice;/' /etc/nginx/nginx.conf && \
-  adduser -D nginx && \
-  rm -rf /tmp/* && \
-  apk del ${build_pkgs} && \
-  rm -rf /var/cache/apk/*
-
-VOLUME ["/var/cache/nginx"]
-
-EXPOSE 80 443
-CMD ["nginx", "-g", "daemon off;"]
+    --with-ipv6 \
+  && make \
+  && make install \
+  && sed -i -e 's/#access_log  logs\/access.log  main;/access_log \/dev\/stdout;/' -e 's/#error_log  logs\/error.log  notice;/error_log stderr notice;/' /etc/nginx/nginx.conf \
+  && adduser -D nginx \
+  && rm -rf /tmp/* \
+  && apk del ${build_pkgs} \
+  && rm -rf /var/cache/apk/*
