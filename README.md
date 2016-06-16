@@ -2,34 +2,31 @@
 
 A lightweight [Nginx][nginx] [Docker image][dockerhub_project] built from source atop [Alpine Linux][alpine_linux]. Available on [GitHub][github_project].
 
-##### Kubernetes Note
-
-> If you're running Kubernetes >=1.2.0 (on your _nodes_), you should now use the normal (non-`-k8s`) version tags on each branch. These tags are built on Alpine Linux 3.4 which adds the necessary `search` support for DNS-based service discovery. This version of Kubernetes defines a single `nameserver` in `/etc/resolv.conf` and specifies `dnsPolicy=ClusterFirst` by default on all pods. Which means, things should finally work for Alpine Linux.
+> If you're running Kubernetes 1.2.0 or later on all your cluster nodes, you should now use the non-`k8s` tags below. These tags are built on Alpine Linux 3.4, which adds the necessary DNS search support for service discovery. Kubernetes defaults to `dnsPolicy=ClusterFirst` in pod specs, and defines a single `nameserver` in `/etc/resolv.conf`. This means things should finally work correctly for Alpine Linux images without modification.
 
 #### Mainline 1.11.x Branch Tags
 
-* `1.11.1`, `1.11`, `mainline`, `latest` (2016-05-31, [Dockerfile][dockerfile_1_11], [Changes][nginx_changes])
-* `1.11.0` (2016-05-24)
+- `1.11.1`, `1.11`, `mainline`, `latest` (2016-05-31, [Dockerfile][dockerfile_1_11], [Changes][nginx_changes])
+- `1.11.0` (2016-05-24)
 
 #### Stable 1.10.x Branch Tags
 
-* `1.10.1`, `1.10`, `stable` (2016-05-31, [Dockerfile][dockerfile_1_10], [Changes][nginx_changes_1_10])
-* `1.10.0` (2016-04-26)
+- `1.10.1`, `1.10`, `stable` (2016-05-31, [Dockerfile][dockerfile_1_10], [Changes][nginx_changes_1_10])
+- `1.10.0` (2016-04-26)
 
 #### Legacy 1.8.x Branch Tags
 
-* `1.8.1`, `1.8`, `legacy` (2016-01-26, [Dockerfile][dockerfile_1_8], [Changes][nginx_changes_1_8])
+- `1.8.1`, `1.8`, `legacy` (2016-01-26, [Dockerfile][dockerfile_1_8], [Changes][nginx_changes_1_8])
 
 #### Kubernetes <1.2.0
 
 Tags with the `-k8s` suffix are built on [Alpine-Kubernetes 3.3][alpine_kubernetes], an image for Kubernetes and other Docker cluster environments that use DNS-based service discovery. It adds the necessary `search` domain support for DNS resolution.
 
- * `1.11.1-k8s`, `1.11-k8s`, `mainline-k8s`, `latest-k8s` ([Dockerfile][dockerfile_1_11_k8s] for Kubernetes)
- * `1.11.0-k8s` (2016-05-24)
- * `1.10.1-k8s`, `1.10-k8s`, `stable-k8s` ([Dockerfile][dockerfile_1_10_k8s] for Kubernetes)
- * `1.10.0-k8s` (2016-04-26)
- * `1.8.1-k8s`, `1.8-k8s`, `legacy-k8s` ([Dockerfile][dockerfile_1_8_k8s] for Kubernetes)
-
+ - `1.11.1-k8s`, `1.11-k8s`, `mainline-k8s`, `latest-k8s`
+ - `1.11.0-k8s`
+ - `1.10.1-k8s`, `1.10-k8s`, `stable-k8s`
+ - `1.10.0-k8s`
+ - `1.8.1-k8s`, `1.8-k8s`, `legacy-k8s`
 
 ### Default Usage
 
@@ -85,11 +82,8 @@ $ docker run --rm sickp/alpine-nginx:1.11.1 cat /etc/alpine-release
 [alpine_linux]:        https://hub.docker.com/_/alpine/
 [dockerhub_project]:   https://hub.docker.com/r/sickp/alpine-nginx/
 [dockerfile_1_8]:      https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.8.1/Dockerfile
-[dockerfile_1_8_k8s]:  https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.8.1-k8s/Dockerfile
 [dockerfile_1_10]:     https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.10.0/Dockerfile
-[dockerfile_1_10_k8s]: https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.10.0-k8s/Dockerfile
 [dockerfile_1_11]:     https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.11.0/Dockerfile
-[dockerfile_1_11_k8s]: https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.11.0-k8s/Dockerfile
 [github_project]:      https://github.com/sickp/docker-alpine-nginx/
 [nginx]:               http://nginx.org/
 [nginx_changes]:       http://nginx.org/en/CHANGES
