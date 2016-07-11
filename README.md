@@ -6,7 +6,8 @@ A lightweight [Nginx][nginx] [Docker image][dockerhub_project] built from source
 
 #### Mainline 1.11.x Branch Tags
 
-- `1.11.1`, `1.11`, `mainline`, `latest` (2016-05-31, [Dockerfile][dockerfile_1_11], [Changes][nginx_changes])
+- `1.11.2`, `1.11`, `mainline`, `latest` (2016-07-05, [Dockerfile][dockerfile_1_11], [Changes][nginx_changes])
+- `1.11.1` (2016-05-31)
 - `1.11.0` (2016-05-24)
 
 #### Stable 1.10.x Branch Tags
@@ -31,14 +32,14 @@ Tags with the `-k8s` suffix are built on [Alpine-Kubernetes 3.3][alpine_kubernet
 ### Default Usage
 
 ```bash
-$ docker run --rm sickp/alpine-nginx:1.11.1 # nginx -g "daemon off;"
-2016/06/16 02:13:26 [notice] 1#1: using the "epoll" event method
-2016/06/16 02:13:26 [notice] 1#1: nginx/1.11.1
-2016/06/16 02:13:26 [notice] 1#1: built by gcc 5.3.0 (Alpine 5.3.0)
-2016/06/16 02:13:26 [notice] 1#1: OS: Linux 4.4.12-moby
-2016/06/16 02:13:26 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
-2016/06/16 02:13:26 [notice] 1#1: start worker processes
-2016/06/16 02:13:26 [notice] 1#1: start worker process 6
+$ docker run --rm sickp/alpine-nginx:1.11.2 # nginx -g "daemon off;"
+2016/07/11 18:24:51 [notice] 1#1: using the "epoll" event method
+2016/07/11 18:24:51 [notice] 1#1: nginx/1.11.2
+2016/07/11 18:24:51 [notice] 1#1: built by gcc 5.3.0 (Alpine 5.3.0)
+2016/07/11 18:24:51 [notice] 1#1: OS: Linux 4.4.14-moby
+2016/07/11 18:24:51 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2016/07/11 18:24:51 [notice] 1#1: start worker processes
+2016/07/11 18:24:51 [notice] 1#1: start worker process 7
 ```
 
 ### Configuration
@@ -46,22 +47,23 @@ $ docker run --rm sickp/alpine-nginx:1.11.1 # nginx -g "daemon off;"
 [Nginx][nginx] is compiled from source using the same [configure arguments][nginx_configure] as the official, pre-built packages.
 
 ```bash
-$ docker run --rm sickp/alpine-nginx:1.11.1 nginx -V
-nginx version: nginx/1.11.1
+$ docker run --rm sickp/alpine-nginx:1.11.2 nginx -V
+nginx version: nginx/1.11.2
 built by gcc 5.3.0 (Alpine 5.3.0)
 built with OpenSSL 1.0.2h  3 May 2016
 TLS SNI support enabled
 configure arguments: --prefix=/etc/nginx --sbin-path=/usr/sbin/nginx --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --pid-path=/var/run/nginx.pid --lock-path=/var/run/nginx.lock --http-client-body-temp-path=/var/cache/nginx/client_temp --http-proxy-temp-path=/var/cache/nginx/proxy_temp --http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp --http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp --http-scgi-temp-path=/var/cache/nginx/scgi_temp --user=nginx --group=nginx --with-http_ssl_module --with-http_realip_module --with-http_addition_module --with-http_sub_module --with-http_dav_module --with-http_flv_module --with-http_mp4_module --with-http_gunzip_module --with-http_gzip_static_module --with-http_random_index_module --with-http_secure_link_module --with-http_stub_status_module --with-http_auth_request_module --with-threads --with-stream --with-stream_ssl_module --with-http_slice_module --with-mail --with-mail_ssl_module --with-file-aio --with-http_v2_module --with-ipv6
 
-$ docker run --rm -it sickp/alpine-nginx:1.11.1 openssl version
+$ docker run --rm -it sickp/alpine-nginx:1.11.2 openssl version
 OpenSSL 1.0.2h  3 May 2016
 
-$ docker run --rm sickp/alpine-nginx:1.11.1 cat /etc/alpine-release
+$ docker run --rm sickp/alpine-nginx:1.11.2 cat /etc/alpine-release
 3.4.0
 ```
 
 ### History
 
+- 2016-07-11 - Updated to Nginx 1.11.2.
 - 2016-06-15 - Updated 1.11.x, 1.10.x, 1.8.x to Alpine Linux 3.4.0 (with `search` support for Kubernetes >=1.2.0).
 - 2016-06-01 - Updated to Nginx 1.11.1 (mainline) and Nginx 1.10.1 (stable).
 - 2016-05-25 - Added new mainline branch Nginx 1.11.0, OpenSSL 1.0.2h.
