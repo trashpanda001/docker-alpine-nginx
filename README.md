@@ -6,7 +6,7 @@ A lightweight [Nginx][nginx] [Docker image][dockerhub_project] built from source
 
 #### Mainline 1.11.x Branch Tags
 
-- `1.11.4`, `1.11`, `mainline`, `latest` (2016-09-13, [Dockerfile][dockerfile_1_11], [Changes][nginx_changes])
+- `1.11.4`, `1.11`, `mainline`, `latest` (2016-09-13, [Dockerfile](https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.11.4/Dockerfile), [Changes][nginx_changes])
 - `1.11.3` (2016-07-26)
 - `1.11.2` (2016-07-05)
 - `1.11.1` (2016-05-31)
@@ -14,12 +14,12 @@ A lightweight [Nginx][nginx] [Docker image][dockerhub_project] built from source
 
 #### Stable 1.10.x Branch Tags
 
-- `1.10.1`, `1.10`, `stable` (2016-05-31, [Dockerfile][dockerfile_1_10], [Changes][nginx_changes_1_10])
+- `1.10.1`, `1.10`, `stable` (2016-05-31, [Dockerfile](https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.10.1/Dockerfile), [Changes][nginx_changes_1_10])
 - `1.10.0` (2016-04-26)
 
 #### Legacy 1.8.x Branch Tags
 
-- `1.8.1`, `1.8`, `legacy` (2016-01-26, [Dockerfile][dockerfile_1_8], [Changes][nginx_changes_1_8])
+- `1.8.1`, `1.8`, `legacy` (2016-01-26, [Dockerfile](https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.8.1/Dockerfile), [Changes][nginx_changes_1_8])
 
 #### Kubernetes <1.2.0
 
@@ -87,9 +87,6 @@ $ docker run --rm sickp/alpine-nginx:1.11.4 cat /etc/alpine-release
 [alpine_kubernetes]:   https://hub.docker.com/r/janeczku/alpine-kubernetes/
 [alpine_linux]:        https://hub.docker.com/_/alpine/
 [dockerhub_project]:   https://hub.docker.com/r/sickp/alpine-nginx/
-[dockerfile_1_8]:      https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.8.1/Dockerfile
-[dockerfile_1_10]:     https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.10.0/Dockerfile
-[dockerfile_1_11]:     https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.11.0/Dockerfile
 [github_project]:      https://github.com/sickp/docker-alpine-nginx/
 [nginx]:               http://nginx.org/
 [nginx_changes]:       http://nginx.org/en/CHANGES
