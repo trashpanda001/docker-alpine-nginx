@@ -15,7 +15,8 @@ A lightweight [Nginx][nginx] [Docker image][dockerhub_project] built from source
 
 #### Stable 1.10.x Branch Tags
 
-- `1.10.1`, `1.10`, `stable` (2016-05-31, [Dockerfile](https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.10.1/Dockerfile), [Changes][nginx_changes_1_10])
+- `1.10.2`, `1.10`, `stable` (2016-10-18, [Dockerfile](https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.10.2/Dockerfile), [Changes][nginx_changes_1_10])
+- `1.10.1` (2016-05-31)
 - `1.10.0` (2016-04-26)
 
 #### Legacy 1.8.x Branch Tags
@@ -66,7 +67,8 @@ $ docker run --rm sickp/alpine-nginx:1.11.5 cat /etc/alpine-release
 
 ### History
 
-- 2016-10-11 - Updated to Nginx 1.11.5, OpenSSL 1.0.2.j, Alpine Linux 3.4.3.
+- 2016-10-18 - Added Nginx 1.10.2 (OpenSSL 1.0.2j, Alpine Linux 3.4.4).
+- 2016-10-11 - Updated to Nginx 1.11.5 (OpenSSL 1.0.2j, Alpine Linux 3.4.3).
 - 2016-09-13 - Updated to Nginx 1.11.4.
 - 2016-07-26 - Updated to Nginx 1.11.3.
 - 2016-07-11 - Updated to Nginx 1.11.2.
