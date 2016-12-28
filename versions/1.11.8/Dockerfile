@@ -1,6 +1,6 @@
-# Nginx <%= nginx_version %> - Mainline version
+# Nginx 1.11.8 - Mainline version
 
-FROM <%= base_image %>
+FROM alpine:3.5
 MAINTAINER Adrian B. Danieli "https://github.com/sickp"
 
 EXPOSE 80 443
@@ -11,9 +11,9 @@ RUN build_pkgs="build-base linux-headers libressl-dev pcre-dev wget zlib-dev" \
   && runtime_pkgs="ca-certificates libressl pcre zlib" \
   && apk --update add ${build_pkgs} ${runtime_pkgs} \
   && cd /tmp \
-  && wget http://nginx.org/download/nginx-<%= nginx_version %>.tar.gz \
-  && tar xzf nginx-<%= nginx_version %>.tar.gz \
-  && cd /tmp/nginx-<%= nginx_version %> \
+  && wget http://nginx.org/download/nginx-1.11.8.tar.gz \
+  && tar xzf nginx-1.11.8.tar.gz \
+  && cd /tmp/nginx-1.11.8 \
   && ./configure \
     --prefix=/etc/nginx \
     --sbin-path=/usr/sbin/nginx \

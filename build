@@ -21,7 +21,7 @@ end
 
 template = ERB.new(File.read(File.join(File.dirname(__FILE__), "templates", "Dockerfile.#{branch}.erb")))
 
-base_image = "alpine:3.4"
+base_image = "alpine:3.5"
 dockerfile = File.join(File.dirname(__FILE__), "versions", nginx_version, "Dockerfile")
 Dir.mkdir(File.dirname(dockerfile)) rescue nil
 File.write(dockerfile, template.result(binding))

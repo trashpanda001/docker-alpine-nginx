@@ -2,11 +2,12 @@
 
 A lightweight [Nginx][nginx] [Docker image][dockerhub_project] built from source atop [Alpine Linux][alpine_linux]. Available on [GitHub][github_project].
 
-> If you're running Kubernetes 1.2.0 or later on all your cluster nodes, you should now use the non-`k8s` tags below. These tags are built on Alpine Linux 3.4, which adds the necessary DNS search support for service discovery. Kubernetes defaults to `dnsPolicy=ClusterFirst` in pod specs, and defines a single `nameserver` in `/etc/resolv.conf`. This means things should finally work correctly for Alpine Linux images without modification.
-
 #### Mainline 1.11.x Branch Tags
 
-- `1.11.7`, `1.11`, `mainline`, `latest` (2016-12-13, [Dockerfile](https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.11.7/Dockerfile), [Changes][nginx_changes])
+> Nginx 1.11.8+ are built on Alpine Linux 3.5.0 (LibreSSL 2.4.4, gcc 6.2.1).
+
+- `1.11.8`, `1.11`, `mainline`, `latest` (2016-12-27, [Dockerfile](https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.11.8/Dockerfile), [Changes][nginx_changes])
+- `1.11.7` (2016-12-13)
 - `1.11.6` (2016-11-15)
 - `1.11.5` (2016-10-11)
 - `1.11.4` (2016-09-13)
@@ -27,7 +28,7 @@ A lightweight [Nginx][nginx] [Docker image][dockerhub_project] built from source
 
 #### Kubernetes <1.2.0
 
-Tags with the `-k8s` suffix are built on [Alpine-Kubernetes 3.3][alpine_kubernetes], an image for Kubernetes and other Docker cluster environments that use DNS-based service discovery. It adds the necessary `search` domain support for DNS resolution.
+Tags with the `-k8s` suffix are built on [Alpine-Kubernetes 3.3][alpine_kubernetes], an image for Kubernetes and other Docker cluster environments that use DNS-based service discovery. It adds the necessary `search` domain support for DNS resolution. If you're running Kubernetes 1.2.0 or later on all your cluster nodes, you should now use the non-`k8s` tags. Modern Kubernetes defaults to `dnsPolicy=ClusterFirst` in pod specs, and defines a single `nameserver` in `/etc/resolv.conf`. This means things should finally work correctly for Alpine Linux images without modification.
 
  - `1.11.1-k8s`, `1.11-k8s`, `mainline-k8s`, `latest-k8s`
  - `1.11.0-k8s`
@@ -38,14 +39,14 @@ Tags with the `-k8s` suffix are built on [Alpine-Kubernetes 3.3][alpine_kubernet
 ### Default Usage
 
 ```bash
-$ docker run --rm sickp/alpine-nginx:1.11.7
-2016/12/14 18:52:31 [notice] 1#1: using the "epoll" event method
-2016/12/14 18:52:31 [notice] 1#1: nginx/1.11.7
-2016/12/14 18:52:31 [notice] 1#1: built by gcc 5.3.0 (Alpine 5.3.0)
-2016/12/14 18:52:31 [notice] 1#1: OS: Linux 4.4.27-moby
-2016/12/14 18:52:31 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
-2016/12/14 18:52:31 [notice] 1#1: start worker processes
-2016/12/14 18:52:31 [notice] 1#1: start worker process 7
+$ docker run --rm sickp/alpine-nginx:1.11.8
+2016/12/28 23:04:51 [notice] 1#1: using the "epoll" event method
+2016/12/28 23:04:51 [notice] 1#1: nginx/1.11.8
+2016/12/28 23:04:51 [notice] 1#1: built by gcc 6.2.1 20160822 (Alpine 6.2.1)
+2016/12/28 23:04:51 [notice] 1#1: OS: Linux 4.4.39-moby
+2016/12/28 23:04:51 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2016/12/28 23:04:51 [notice] 1#1: start worker processes
+2016/12/28 23:04:51 [notice] 1#1: start worker process 7
 ```
 
 ### Configuration
@@ -53,22 +54,23 @@ $ docker run --rm sickp/alpine-nginx:1.11.7
 [Nginx][nginx] is compiled from source using the same [configure arguments][nginx_configure] as the official, pre-built packages.
 
 ```bash
-$ docker-alpine-nginx $ docker run --rm sickp/alpine-nginx:1.11.7 nginx -V
-nginx version: nginx/1.11.7
-built by gcc 5.3.0 (Alpine 5.3.0)
-built with OpenSSL 1.0.2j  26 Sep 2016
+$ docker-alpine-nginx $ docker run --rm sickp/alpine-nginx:1.11.8 nginx -V
+nginx version: nginx/1.11.8
+built by gcc 6.2.1 20160822 (Alpine 6.2.1)
+built with LibreSSL 2.4.4
 TLS SNI support enabled
 configure arguments: --prefix=/etc/nginx --sbin-path=/usr/sbin/nginx --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --pid-path=/var/run/nginx.pid --lock-path=/var/run/nginx.lock --http-client-body-temp-path=/var/cache/nginx/client_temp --http-proxy-temp-path=/var/cache/nginx/proxy_temp --http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp --http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp --http-scgi-temp-path=/var/cache/nginx/scgi_temp --user=nginx --group=nginx --with-http_ssl_module --with-http_realip_module --with-http_addition_module --with-http_sub_module --with-http_dav_module --with-http_flv_module --with-http_mp4_module --with-http_gunzip_module --with-http_gzip_static_module --with-http_random_index_module --with-http_secure_link_module --with-http_stub_status_module --with-http_auth_request_module --with-threads --with-stream --with-stream_ssl_module --with-http_slice_module --with-mail --with-mail_ssl_module --with-file-aio --with-http_v2_module --with-ipv6
 
-$ docker run --rm -it sickp/alpine-nginx:1.11.7 openssl version
-OpenSSL 1.0.2j  26 Sep 2016
+$ docker run --rm sickp/alpine-nginx:1.11.8 openssl version
+LibreSSL 2.4.4
 
-$ docker run --rm sickp/alpine-nginx:1.11.7 cat /etc/alpine-release
-3.4.4
+$ docker run --rm sickp/alpine-nginx:1.11.8 cat /etc/alpine-release
+3.5.0
 ```
 
 ### History
 
+- 2016-12-28 - Updated to Nginx 1.11.8 and Alpine Linux 3.5.0 (LibreSSL 2.4.4, gcc 6.2.1).
 - 2016-12-14 - Updated to Nginx 1.11.7.
 - 2016-11-16 - Updated to Nginx 1.11.6 (Alpine Linux 3.4.4).
 - 2016-10-18 - Added Nginx 1.10.2 (OpenSSL 1.0.2j, Alpine Linux 3.4.4).
