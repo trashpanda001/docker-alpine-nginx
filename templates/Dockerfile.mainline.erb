@@ -51,6 +51,7 @@ RUN build_pkgs="build-base linux-headers libressl-dev pcre-dev wget zlib-dev" \
     --with-file-aio \
     --with-http_v2_module \
     --with-ipv6 \
+    --with-stream_realip_module \
   && make \
   && make install \
   && sed -i -e 's/#access_log  logs\/access.log  main;/access_log \/dev\/stdout;/' -e 's/#error_log  logs\/error.log  notice;/error_log stderr notice;/' /etc/nginx/nginx.conf \
