@@ -6,7 +6,8 @@ A lightweight [Nginx][nginx] [Docker image][dockerhub_project] built from source
 
 > Nginx 1.11.8+ are built on Alpine Linux 3.5.0 (LibreSSL 2.4.4, gcc 6.2.1).
 
-- `1.11.8`, `1.11`, `mainline`, `latest` (2016-12-27, [Dockerfile](https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.11.8/Dockerfile), [Changes][nginx_changes])
+- `1.11.9`, `1.11`, `mainline`, `latest` (2017-01-24, [Dockerfile](https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.11.9/Dockerfile), [Changes][nginx_changes])
+- `1.11.8` (2016-12-27)
 - `1.11.7` (2016-12-13)
 - `1.11.6` (2016-11-15)
 - `1.11.5` (2016-10-11)
@@ -17,6 +18,8 @@ A lightweight [Nginx][nginx] [Docker image][dockerhub_project] built from source
 - `1.11.0` (2016-05-24)
 
 #### Stable 1.10.x Branch Tags
+
+> Nginx 1.10.2+ are built on Alpine Linux 3.5.0 (LibreSSL 2.4.4, gcc 6.2.1).
 
 - `1.10.2`, `1.10`, `stable` (2016-10-18, [Dockerfile](https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.10.2/Dockerfile), [Changes][nginx_changes_1_10])
 - `1.10.1` (2016-05-31)
@@ -40,13 +43,13 @@ Tags with the `-k8s` suffix are built on [Alpine-Kubernetes 3.3][alpine_kubernet
 
 ```bash
 $ docker run --rm sickp/alpine-nginx:1.11.8
-2016/12/28 23:04:51 [notice] 1#1: using the "epoll" event method
-2016/12/28 23:04:51 [notice] 1#1: nginx/1.11.8
-2016/12/28 23:04:51 [notice] 1#1: built by gcc 6.2.1 20160822 (Alpine 6.2.1)
-2016/12/28 23:04:51 [notice] 1#1: OS: Linux 4.4.39-moby
-2016/12/28 23:04:51 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
-2016/12/28 23:04:51 [notice] 1#1: start worker processes
-2016/12/28 23:04:51 [notice] 1#1: start worker process 7
+2017/01/25 03:11:34 [notice] 1#1: using the "epoll" event method
+2017/01/25 03:11:34 [notice] 1#1: nginx/1.11.9
+2017/01/25 03:11:34 [notice] 1#1: built by gcc 6.2.1 20160822 (Alpine 6.2.1)
+2017/01/25 03:11:34 [notice] 1#1: OS: Linux 4.9.4-moby
+2017/01/25 03:11:34 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2017/01/25 03:11:34 [notice] 1#1: start worker processes
+2017/01/25 03:11:34 [notice] 1#1: start worker process 7
 ```
 
 ### Configuration
@@ -54,22 +57,23 @@ $ docker run --rm sickp/alpine-nginx:1.11.8
 [Nginx][nginx] is compiled from source using the same [configure arguments][nginx_configure] as the official, pre-built packages.
 
 ```bash
-$ docker-alpine-nginx $ docker run --rm sickp/alpine-nginx:1.11.8 nginx -V
-nginx version: nginx/1.11.8
+$ docker-alpine-nginx $ docker run --rm sickp/alpine-nginx:1.11.9 nginx -V
+nginx version: nginx/1.11.9
 built by gcc 6.2.1 20160822 (Alpine 6.2.1)
 built with LibreSSL 2.4.4
 TLS SNI support enabled
 configure arguments: --prefix=/etc/nginx --sbin-path=/usr/sbin/nginx --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --pid-path=/var/run/nginx.pid --lock-path=/var/run/nginx.lock --http-client-body-temp-path=/var/cache/nginx/client_temp --http-proxy-temp-path=/var/cache/nginx/proxy_temp --http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp --http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp --http-scgi-temp-path=/var/cache/nginx/scgi_temp --user=nginx --group=nginx --with-http_ssl_module --with-http_realip_module --with-http_addition_module --with-http_sub_module --with-http_dav_module --with-http_flv_module --with-http_mp4_module --with-http_gunzip_module --with-http_gzip_static_module --with-http_random_index_module --with-http_secure_link_module --with-http_stub_status_module --with-http_auth_request_module --with-threads --with-stream --with-stream_ssl_module --with-http_slice_module --with-mail --with-mail_ssl_module --with-file-aio --with-http_v2_module --with-ipv6 --with-stream_realip_module
 
-$ docker run --rm sickp/alpine-nginx:1.11.8 openssl version
+$ docker run --rm sickp/alpine-nginx:1.11.9 openssl version
 LibreSSL 2.4.4
 
-$ docker run --rm sickp/alpine-nginx:1.11.8 cat /etc/alpine-release
+$ docker run --rm sickp/alpine-nginx:1.11.9 cat /etc/alpine-release
 3.5.0
 ```
 
 ### History
 
+- 2017-01-24 - Updated to Nginx 1.11.9. Rebuilt Nginx 1.10.2 with Alpine Linux 3.5.0.
 - 2016-12-28 - Rebuilt 1.11.8 mainline with `--with-stream_realip_module`.
 - 2016-12-28 - Updated to Nginx 1.11.8 and Alpine Linux 3.5.0 (LibreSSL 2.4.4, gcc 6.2.1).
 - 2016-12-14 - Updated to Nginx 1.11.7.
