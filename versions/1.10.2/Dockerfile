@@ -1,6 +1,6 @@
 # Nginx 1.10.2 - Stable version
 
-FROM alpine:3.4
+FROM alpine:3.5
 MAINTAINER Adrian B. Danieli "https://github.com/sickp"
 
 EXPOSE 80 443
