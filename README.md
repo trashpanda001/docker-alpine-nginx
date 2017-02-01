@@ -21,7 +21,8 @@ A lightweight [Nginx][nginx] [Docker image][dockerhub_project] built from source
 
 > Nginx 1.10.2+ are built on Alpine Linux 3.5.0 (LibreSSL 2.4.4, gcc 6.2.1).
 
-- `1.10.2`, `1.10`, `stable` (2016-10-18, [Dockerfile](https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.10.2/Dockerfile), [Changes][nginx_changes_1_10])
+- `1.10.3`, `1.10`, `stable` (2017-01-31, [Dockerfile](https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.10.3/Dockerfile), [Changes][nginx_changes_1_10])
+- `1.10.2` (2016-10-18)
 - `1.10.1` (2016-05-31)
 - `1.10.0` (2016-04-26)
 
@@ -73,6 +74,7 @@ $ docker run --rm sickp/alpine-nginx:1.11.9 cat /etc/alpine-release
 
 ### History
 
+- 2017-01-31 - Updated stable branch to Nginx 1.10.3.
 - 2017-01-24 - Updated to Nginx 1.11.9. Rebuilt Nginx 1.10.2 with Alpine Linux 3.5.0.
 - 2016-12-28 - Rebuilt 1.11.8 mainline with `--with-stream_realip_module`.
 - 2016-12-28 - Updated to Nginx 1.11.8 and Alpine Linux 3.5.0 (LibreSSL 2.4.4, gcc 6.2.1).
