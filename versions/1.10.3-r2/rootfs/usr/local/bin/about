@@ -1,0 +1,3 @@
+#!/bin/ash
+echo "* $(nginx -V 2>&1 | sed 's/nginx version: nginx\//Nginx /')"
+echo "* Alpine Linux $(cat /etc/alpine-release)"

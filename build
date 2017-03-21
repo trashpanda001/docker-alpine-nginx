@@ -1,35 +1,17 @@
 #!/usr/bin/env ruby
-require "erb"
 repo="sickp/alpine-nginx"
 
-nginx_version = ARGV.first
-case nginx_version
-when /\A1\.11\.\d+\z/
-  branch = "mainline"
-  tags = %w(1.11 mainline latest)
-when /\A1\.10\.\d+\z/
-  branch = "stable"
-  tags = %w(1.10 stable)
-when /\A1\.8\.\d+\z/
-  branch = "legacy"
-  tags = %w(1.8 legacy)
+nginx_version = ARGV.first || ''
+md = nginx_version.match(/\A((\d+\.\d+)\.\d+)-r\d+\z/)
+case md && md[2]
+when "1.11"
+  puts "Building mainline..."
+when "1.10"
+  puts "Building stable..."
 else
-  puts "Usage: build <nginx-version>"
-  puts "  <nginx-version> = 1.8.x | 1.10.x | 1.11.x"
+  puts "Usage: build {major}.{minor}.{teeny}-r{revision}"
   exit 1
 end
 
-template = ERB.new(File.read(File.join(File.dirname(__FILE__), "templates", "Dockerfile.#{branch}.erb")))
-
-base_image = "alpine:3.5"
-dockerfile = File.join(File.dirname(__FILE__), "versions", nginx_version, "Dockerfile")
-Dir.mkdir(File.dirname(dockerfile)) rescue nil
-File.write(dockerfile, template.result(binding))
-
-system("docker build -t #{repo}:#{nginx_version} --pull versions/#{nginx_version} --squash") || abort
+system("docker image build --tag #{repo}:#{nginx_version} --pull versions/#{nginx_version}") || abort
 puts "Built #{repo}:#{nginx_version}"
-
-tags.each do |tag|
-  system("docker tag #{repo}:#{nginx_version} #{repo}:#{tag}") || abort
-  puts "Tagged #{repo}:#{tag}"
-end

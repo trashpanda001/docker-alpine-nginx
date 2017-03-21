@@ -1,19 +1,30 @@
-# Nginx <%= nginx_version %> - Legacy version
-
-FROM <%= base_image %>
-MAINTAINER Adrian B. Danieli "https://github.com/sickp"
+FROM alpine:3.5
+LABEL maintainer "Adrian B. Danieli - https://github.com/sickp"
 
 EXPOSE 80 443
 CMD ["nginx", "-g", "daemon off;"]
-VOLUME ["/var/cache/nginx"]
 
-RUN build_pkgs="build-base linux-headers openssl-dev pcre-dev wget zlib-dev" \
-  && runtime_pkgs="ca-certificates openssl pcre zlib" \
-  && apk --update add ${build_pkgs} ${runtime_pkgs} \
+COPY rootfs /
+
+ENV NGINX_VERSION 1.11.11
+
+RUN set -ex \
+  && apk add --no-cache \
+    ca-certificates \
+    libressl \
+    pcre \
+    zlib \
+  && apk add --no-cache --virtual .build-deps \
+    build-base \
+    linux-headers \
+    libressl-dev \
+    pcre-dev \
+    wget \
+    zlib-dev \
   && cd /tmp \
-  && wget http://nginx.org/download/nginx-<%= nginx_version %>.tar.gz \
-  && tar xzf nginx-<%= nginx_version %>.tar.gz \
-  && cd /tmp/nginx-<%= nginx_version %> \
+  && wget http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz \
+  && tar xzf nginx-${NGINX_VERSION}.tar.gz \
+  && cd /tmp/nginx-${NGINX_VERSION} \
   && ./configure \
     --prefix=/etc/nginx \
     --sbin-path=/usr/sbin/nginx \
@@ -42,15 +53,20 @@ RUN build_pkgs="build-base linux-headers openssl-dev pcre-dev wget zlib-dev" \
     --with-http_secure_link_module \
     --with-http_stub_status_module \
     --with-http_auth_request_module \
+    --with-threads \
+    --with-stream \
+    --with-stream_ssl_module \
+    --with-http_slice_module \
     --with-mail \
     --with-mail_ssl_module \
     --with-file-aio \
-    --with-http_spdy_module \
+    --with-http_v2_module \
     --with-ipv6 \
-  && make \
+    --with-stream_realip_module \
+  && make -j$(getconf _NPROCESSORS_ONLN) \
   && make install \
   && sed -i -e 's/#access_log  logs\/access.log  main;/access_log \/dev\/stdout;/' -e 's/#error_log  logs\/error.log  notice;/error_log stderr notice;/' /etc/nginx/nginx.conf \
   && adduser -D nginx \
-  && rm -rf /tmp/* \
-  && apk del ${build_pkgs} \
-  && rm -rf /var/cache/apk/*
+  && mkdir -p /var/cache/nginx \
+  && apk del .build-deps \
+  && rm -rf /tmp/*

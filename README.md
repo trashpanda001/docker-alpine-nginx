@@ -1,13 +1,27 @@
 ### Alpine Linux Nginx
 
-A lightweight [Nginx][nginx] [Docker image][dockerhub_project] built from source atop [Alpine Linux][alpine_linux]. Available on [GitHub][github_project].
+A lightweight [Nginx][nginx] [Docker image][dockerhub_project] built from source atop [Alpine Linux][alpine_linux]. It is compiled from source using the same [configure arguments][nginx_configure] as the official, pre-built packages. Available on [GitHub][github_project].
 
-#### Mainline 1.11.x Branch Tags
+    $ docker run --rm sickp/alpine-nginx:1.11.11-r1  # nginx -g 'daemon off';
 
-> Nginx 1.11.8+ are built on Alpine Linux 3.5.0 (LibreSSL 2.4.4, gcc 6.2.1).
+The version tag format is formed from the Nginx version `{major}.{minor}.{teeny}` plus an image revision `-r{revision}`. The image revision will change if the Dockerfile or Alpine base image changes.
 
-- `1.11.10`, `1.11`, `mainline`, `latest` (2017-02-14, [Dockerfile](https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.11.10/Dockerfile), [Changes][nginx_changes])
-- `1.11.9`  (2017-01-24)
+### Mainline 1.11.x Tags
+
+#### `sickp/alpine-nginx:1.11.11-r1` (2017-03-21)
+
+`1.11.11-r1`, `1.11.11`, `1.11`, `mainline`, `latest` ( [Dockerfile](https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.11.11-r1/Dockerfile), [Changes][nginx_changes])
+
+    $ docker run --rm sickp/alpine-nginx:1.11.11-r1 about
+    * Nginx 1.11.11
+    built by gcc 6.2.1 20160822 (Alpine 6.2.1)
+    built with LibreSSL 2.4.4
+    TLS SNI support enabled
+    configure arguments: --prefix=/etc/nginx --sbin-path=/usr/sbin/nginx --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --pid-path=/var/run/nginx.pid --lock-path=/var/run/nginx.lock --http-client-body-temp-path=/var/cache/nginx/client_temp --http-proxy-temp-path=/var/cache/nginx/proxy_temp --http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp --http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp --http-scgi-temp-path=/var/cache/nginx/scgi_temp --user=nginx --group=nginx --with-http_ssl_module --with-http_realip_module --with-http_addition_module --with-http_sub_module --with-http_dav_module --with-http_flv_module --with-http_mp4_module --with-http_gunzip_module --with-http_gzip_static_module --with-http_random_index_module --with-http_secure_link_module --with-http_stub_status_module --with-http_auth_request_module --with-threads --with-stream --with-stream_ssl_module --with-http_slice_module --with-mail --with-mail_ssl_module --with-file-aio --with-http_v2_module --with-ipv6 --with-stream_realip_module
+    * Alpine Linux 3.5.2
+
+- `1.11.10` (2017-02-14)
+- `1.11.9` (2017-01-24)
 - `1.11.8` (2016-12-27)
 - `1.11.7` (2016-12-13)
 - `1.11.6` (2016-11-15)
@@ -18,60 +32,37 @@ A lightweight [Nginx][nginx] [Docker image][dockerhub_project] built from source
 - `1.11.1` (2016-05-31)
 - `1.11.0` (2016-05-24)
 
-#### Stable 1.10.x Branch Tags
+### Stable 1.10.x Branch Tags
 
-> Nginx 1.10.2+ are built on Alpine Linux 3.5.0 (LibreSSL 2.4.4, gcc 6.2.1).
+#### `sickp/alpine-nginx:1.10.3-r2` (2017-03-21)
 
-- `1.10.3`, `1.10`, `stable` (2017-01-31, [Dockerfile](https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.10.3/Dockerfile), [Changes][nginx_changes_1_10])
+`1.10.3-r2`, `1.10.3`, `1.10`, `stable` ( [Dockerfile](https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.10.3-r2/Dockerfile), [Changes][nginx_changes_1_10])
+
+    $ docker run --rm sickp/alpine-nginx:1.10.3-r2 about
+    * Nginx 1.10.3
+    built by gcc 6.2.1 20160822 (Alpine 6.2.1)
+    built with LibreSSL 2.4.4
+    TLS SNI support enabled
+    configure arguments: --prefix=/etc/nginx --sbin-path=/usr/sbin/nginx --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --pid-path=/var/run/nginx.pid --lock-path=/var/run/nginx.lock --http-client-body-temp-path=/var/cache/nginx/client_temp --http-proxy-temp-path=/var/cache/nginx/proxy_temp --http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp --http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp --http-scgi-temp-path=/var/cache/nginx/scgi_temp --user=nginx --group=nginx --with-http_ssl_module --with-http_realip_module --with-http_addition_module --with-http_sub_module --with-http_dav_module --with-http_flv_module --with-http_mp4_module --with-http_gunzip_module --with-http_gzip_static_module --with-http_random_index_module --with-http_secure_link_module --with-http_stub_status_module --with-http_auth_request_module --with-threads --with-stream --with-stream_ssl_module --with-http_slice_module --with-mail --with-mail_ssl_module --with-file-aio --with-http_v2_module --with-ipv6
+    * Alpine Linux 3.5.2
+
+- `1.10.3` (2017-01-31)
 - `1.10.2` (2016-10-18)
 - `1.10.1` (2016-05-31)
 - `1.10.0` (2016-04-26)
 
-#### Legacy 1.8.x Branch Tags
+### Legacy  Tags
 
-- `1.8.1`, `1.8`, `legacy` (2016-01-26, [Dockerfile](https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.8.1/Dockerfile), [Changes][nginx_changes_1_8])
-
-#### Kubernetes <1.2.0
-
-Tags with the `-k8s` suffix are built on [Alpine-Kubernetes 3.3][alpine_kubernetes], an image for Kubernetes and other Docker cluster environments that use DNS-based service discovery. It adds the necessary `search` domain support for DNS resolution. If you're running Kubernetes 1.2.0 or later on all your cluster nodes, you should now use the non-`k8s` tags. Modern Kubernetes defaults to `dnsPolicy=ClusterFirst` in pod specs, and defines a single `nameserver` in `/etc/resolv.conf`. This means things should finally work correctly for Alpine Linux images without modification.
-
- - `1.11.1-k8s`, `1.11-k8s`, `mainline-k8s`, `latest-k8s`
- - `1.11.0-k8s`
- - `1.10.1-k8s`, `1.10-k8s`, `stable-k8s`
- - `1.10.0-k8s`
- - `1.8.1-k8s`, `1.8-k8s`, `legacy-k8s`
-
-### Default Usage
-
-```bash
-$ docker run --rm sickp/alpine-nginx:1.11.10
-2017/02/15 03:41:24 [notice] 1#1: using the "epoll" event method
-2017/02/15 03:41:24 [notice] 1#1: nginx/1.11.10
-2017/02/15 03:41:24 [notice] 1#1: built by gcc 6.2.1 20160822 (Alpine 6.2.1)
-2017/02/15 03:41:24 [notice] 1#1: OS: Linux 4.9.8-moby
-2017/02/15 03:41:24 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
-2017/02/15 03:41:24 [notice] 1#1: start worker processes
-2017/02/15 03:41:24 [notice] 1#1: start worker process 7
-```
-
-### Configuration
-
-[Nginx][nginx] is compiled from source using the same [configure arguments][nginx_configure] as the official, pre-built packages.
-
-```bash
-$ docker run --rm sickp/alpine-nginx:1.11.10 nginx -V
-nginx version: nginx/1.11.10
-built by gcc 6.2.1 20160822 (Alpine 6.2.1)
-built with LibreSSL 2.4.4
-TLS SNI support enabled
-configure arguments: --prefix=/etc/nginx --sbin-path=/usr/sbin/nginx --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --pid-path=/var/run/nginx.pid --lock-path=/var/run/nginx.lock --http-client-body-temp-path=/var/cache/nginx/client_temp --http-proxy-temp-path=/var/cache/nginx/proxy_temp --http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp --http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp --http-scgi-temp-path=/var/cache/nginx/scgi_temp --user=nginx --group=nginx --with-http_ssl_module --with-http_realip_module --with-http_addition_module --with-http_sub_module --with-http_dav_module --with-http_flv_module --with-http_mp4_module --with-http_gunzip_module --with-http_gzip_static_module --with-http_random_index_module --with-http_secure_link_module --with-http_stub_status_module --with-http_auth_request_module --with-threads --with-stream --with-stream_ssl_module --with-http_slice_module --with-mail --with-mail_ssl_module --with-file-aio --with-http_v2_module --with-ipv6 --with-stream_realip_module
-
-$ docker run --rm sickp/alpine-nginx:1.11.10 cat /etc/alpine-release
-3.5.0
-```
+- `1.8.1`, `1.8`, `legacy` (2016-01-26, [Dockerfile](https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.8.1/Dockerfile))
+- `1.11.1-k8s`, `1.11-k8s`, `mainline-k8s`, `latest-k8s`
+- `1.11.0-k8s`
+- `1.10.1-k8s`, `1.10-k8s`, `stable-k8s`
+- `1.10.0-k8s`
+- `1.8.1-k8s`, `1.8-k8s`, `legacy-k8s`
 
 ### History
 
+- 2017-03-31 - Updated to Nginx 1.11.11-r1, 1.10.3-r2. Added image revision to tag.
 - 2017-02-14 - Updated to Nginx 1.11.10. <3 sickp
 - 2017-01-31 - Updated stable branch to Nginx 1.10.3.
 - 2017-01-24 - Updated to Nginx 1.11.9. Rebuilt Nginx 1.10.2 with Alpine Linux 3.5.0.
@@ -100,12 +91,10 @@ $ docker run --rm sickp/alpine-nginx:1.11.10 cat /etc/alpine-release
 - 2015-12-10 - Updated to 1.9.9.
 - 2015-11-27 - Initial version.
 
-[alpine_kubernetes]:   https://hub.docker.com/r/janeczku/alpine-kubernetes/
 [alpine_linux]:        https://hub.docker.com/_/alpine/
 [dockerhub_project]:   https://hub.docker.com/r/sickp/alpine-nginx/
 [github_project]:      https://github.com/sickp/docker-alpine-nginx/
 [nginx]:               http://nginx.org/
 [nginx_changes]:       http://nginx.org/en/CHANGES
-[nginx_changes_1_8]:   http://nginx.org/en/CHANGES-1.8
 [nginx_changes_1_10]:  http://nginx.org/en/CHANGES-1.10
 [nginx_configure]:     http://nginx.org/en/linux_packages.html#mainline
