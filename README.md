@@ -60,36 +60,36 @@ The version tag format is formed from the Nginx version `{major}.{minor}.{teeny}
 - `1.10.0-k8s`
 - `1.8.1-k8s`, `1.8-k8s`, `legacy-k8s`
 
-### History
+### History / ChangeLog
 
-- 2017-03-31 - Updated to Nginx 1.11.11-r1, 1.10.3-r2. Added image revision to tag.
-- 2017-02-14 - Updated to Nginx 1.11.10. <3 sickp
-- 2017-01-31 - Updated stable branch to Nginx 1.10.3.
-- 2017-01-24 - Updated to Nginx 1.11.9. Rebuilt Nginx 1.10.2 with Alpine Linux 3.5.0.
-- 2016-12-28 - Rebuilt 1.11.8 mainline with `--with-stream_realip_module`.
-- 2016-12-28 - Updated to Nginx 1.11.8 and Alpine Linux 3.5.0 (LibreSSL 2.4.4, gcc 6.2.1).
-- 2016-12-14 - Updated to Nginx 1.11.7.
-- 2016-11-16 - Updated to Nginx 1.11.6 (Alpine Linux 3.4.4).
-- 2016-10-18 - Added Nginx 1.10.2 (OpenSSL 1.0.2j, Alpine Linux 3.4.4).
-- 2016-10-11 - Updated to Nginx 1.11.5 (OpenSSL 1.0.2j, Alpine Linux 3.4.3).
-- 2016-09-13 - Updated to Nginx 1.11.4.
-- 2016-07-26 - Updated to Nginx 1.11.3.
-- 2016-07-11 - Updated to Nginx 1.11.2.
-- 2016-06-15 - Updated 1.11.x, 1.10.x, 1.8.x to Alpine Linux 3.4.0 (with `search` support for Kubernetes >=1.2.0).
-- 2016-06-01 - Updated to Nginx 1.11.1 (mainline) and Nginx 1.10.1 (stable).
-- 2016-05-25 - Added new mainline branch Nginx 1.11.0, OpenSSL 1.0.2h.
-- 2016-04-26 - Added new stable branch Nginx 1.10.0. Moved old stable to legacy branch. Added more `-k8s` tags.
-- 2016-04-21 - Updated to Nginx 1.9.15.
-- 2016-04-05 - Updated to Nginx 1.9.14, Alpine Linux 3.3.3. Added stable branch Nginx 1.8.1.
-- 2016-03-30 - Updated to Nginx 1.9.13, OpenSSL 1.0.2g.
-- 2016-02-24 - Updated to Nginx 1.9.12.
-- 2016-02-09 - Updated to Nginx 1.9.11 (and added http_slice_module).
-- 2016-02-09 - Updated to OpenSSL 1.0.2f. Added support for ALPINE_NO_RESOLVER in 1.9.10-k8s.
-- 2016-01-27 - Added Kubernetes versions (-k8s), until Alpine Linux/musl adds DNS search support.
-- 2016-01-26 - Updated to Nginx 1.9.10, Alpine Linux 3.3.1.
-- 2015-12-24 - Updated 1.9.9 image to Alpine Linux 3.3 (gcc 5.3.0, OpenSSL 1.0.2e).
-- 2015-12-10 - Updated to 1.9.9.
-- 2015-11-27 - Initial version.
+    2017-03-21 Updated to Nginx 1.11.11-r1, 1.10.3-r2. Added image revision to tag.
+    2017-02-14 Updated to Nginx 1.11.10. <3 sickp
+    2017-01-31 Updated stable branch to Nginx 1.10.3.
+    2017-01-24 Updated to Nginx 1.11.9. Rebuilt Nginx 1.10.2 with Alpine Linux 3.5.0.
+    2016-12-28 Rebuilt 1.11.8 mainline with `--with-stream_realip_module`.
+    2016-12-28 Updated to Nginx 1.11.8 and Alpine Linux 3.5.0 (LibreSSL 2.4.4, gcc 6.2.1).
+    2016-12-14 Updated to Nginx 1.11.7.
+    2016-11-16 Updated to Nginx 1.11.6 (Alpine Linux 3.4.4).
+    2016-10-18 Added Nginx 1.10.2 (OpenSSL 1.0.2j, Alpine Linux 3.4.4).
+    2016-10-11 Updated to Nginx 1.11.5 (OpenSSL 1.0.2j, Alpine Linux 3.4.3).
+    2016-09-13 Updated to Nginx 1.11.4.
+    2016-07-26 Updated to Nginx 1.11.3.
+    2016-07-11 Updated to Nginx 1.11.2.
+    2016-06-15 Updated 1.11.x, 1.10.x, 1.8.x to Alpine Linux 3.4.0 (with `search` for Kubernetes >=1.2.0).
+    2016-06-01 Updated to Nginx 1.11.1 (mainline) and Nginx 1.10.1 (stable).
+    2016-05-25 Added new mainline branch Nginx 1.11.0, OpenSSL 1.0.2h.
+    2016-04-26 Added new stable branch Nginx 1.10.0. Moved old to legacy branch. Added more `-k8s` tags.
+    2016-04-21 Updated to Nginx 1.9.15.
+    2016-04-05 Updated to Nginx 1.9.14, Alpine Linux 3.3.3. Added stable branch Nginx 1.8.1.
+    2016-03-30 Updated to Nginx 1.9.13, OpenSSL 1.0.2g.
+    2016-02-24 Updated to Nginx 1.9.12.
+    2016-02-09 Updated to Nginx 1.9.11 (and added http_slice_module).
+    2016-02-09 Updated to OpenSSL 1.0.2f. Added support for ALPINE_NO_RESOLVER in 1.9.10-k8s.
+    2016-01-27 Added Kubernetes versions (-k8s), until Alpine Linux/musl adds DNS search support.
+    2016-01-26 Updated to Nginx 1.9.10, Alpine Linux 3.3.1.
+    2015-12-24 Updated 1.9.9 image to Alpine Linux 3.3 (gcc 5.3.0, OpenSSL 1.0.2e).
+    2015-12-10 Updated to 1.9.9.
+    2015-11-27 Initial version.
 
 [alpine_linux]:        https://hub.docker.com/_/alpine/
 [dockerhub_project]:   https://hub.docker.com/r/sickp/alpine-nginx/
