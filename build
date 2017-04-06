@@ -1,17 +1,21 @@
 #!/usr/bin/env ruby
-repo="sickp/alpine-nginx"
+repo='sickp/alpine-nginx'
 
-nginx_version = ARGV.first || ''
-md = nginx_version.match(/\A((\d+\.\d+)\.\d+)-r\d+\z/)
-case md && md[2]
-when "1.11"
-  puts "Building mainline..."
-when "1.10"
-  puts "Building stable..."
-else
-  puts "Usage: build {major}.{minor}.{teeny}-r{revision}"
+def error(message)
+  puts message
+  puts "Usage: #{__FILE__} {major}.{minor}.{patch}-r{revision}"
   exit 1
 end
 
-system("docker image build --tag #{repo}:#{nginx_version} --pull versions/#{nginx_version}") || abort
-puts "Built #{repo}:#{nginx_version}"
+def execute(cmd)
+  puts "=> #{cmd}"
+  system(cmd) || abort
+end
+
+version = ARGV.first
+error("Bad version format: #{version}") unless version&.match?(/\A\d+\.\d+\.\d+-r\d+\z/)
+
+dockerfile = File.join(File.dirname(__FILE__), 'versions', version, 'Dockerfile')
+error("Missing Dockerfile #{dockerfile}") unless File.file?(dockerfile)
+
+execute("docker image build --tag #{repo}:#{version} --pull versions/#{version}")
