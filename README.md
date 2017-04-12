@@ -24,7 +24,7 @@ The version tag format is formed from the Nginx version `{major}.{minor}.{teeny}
 
 ##### `1.11.13-r1`, `1.11.13`, `1.11`, `mainline`, `latest`
 
-[Dockerfile](https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.11.12-r1/Dockerfile) / [ChangeLog][changelog] / 2017-04-04
+[Dockerfile](https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.11.12-r1/Dockerfile) / [ChangeLog][nginx_changes] / 2017-04-04
 
     $ docker run --rm sickp/alpine-nginx:1.11.13-r1 about
     * Nginx 1.11.13
@@ -36,7 +36,7 @@ The version tag format is formed from the Nginx version `{major}.{minor}.{teeny}
 
 ##### `1.11.12-r1`, `1.11.12`
 
-[Dockerfile](https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.11.12-r1/Dockerfile) / [ChangeLog][changelog] / 2017-03-24
+[Dockerfile](https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.11.12-r1/Dockerfile) / [ChangeLog][nginx_changes] / 2017-03-24
 
     $ docker run --rm sickp/alpine-nginx:1.11.12-r1 about
     * Nginx 1.11.12
@@ -48,7 +48,7 @@ The version tag format is formed from the Nginx version `{major}.{minor}.{teeny}
 
 ##### 1.11.11-r1`, `1.11.11`
 
-[Dockerfile](https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.11.11-r1/Dockerfile) / [ChangeLog][changelog] / 2017-03-21
+[Dockerfile](https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.11.11-r1/Dockerfile) / [ChangeLog][nginx_changes] / 2017-03-21
 
     $ docker run --rm sickp/alpine-nginx:1.11.11-r1 about
     * Nginx 1.11.11
