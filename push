@@ -15,14 +15,17 @@ end
 version, *tags = ARGV
 md = version&.match(/\A(((\d+)\.\d+)\.\d+)-r\d+\z/)
 case md && md[2]
+when "1.13"
+  puts "Pushing 1.13.x mainline..."
+  possible_tags = [ md[1], md[2], 'mainline', 'latest' ]
 when "1.12"
-  puts "Pushing stable..."
+  puts "Pushing 1.12.x stable..."
   possible_tags = [ md[1], md[2], 'stable' ]
 when "1.11"
-  puts "Pushing mainline..."
-  possible_tags = [ md[1], md[2], 'mainline', 'latest' ]
+  puts "Pushing 1.11.x..."
+  possible_tags = [ md[1], md[2] ]
 when "1.10"
-  puts "Pushing legacy..."
+  puts "Pushing 1.10.x..."
   possible_tags = [ md[1], md[2] ]
 else
   error("Unknown version: #{md[2]}")
@@ -32,6 +35,8 @@ dockerfile = File.join(File.dirname(__FILE__), 'versions', version, 'Dockerfile'
 error("Missing Dockerfile #{dockerfile}") unless File.file?(dockerfile)
 
 bad_tags = tags - possible_tags
+puts "Given tags: #{tags.join(', ')}"
+puts "Possible tags: #{possible_tags.join(', ')}"
 error("Illegal tag(s): #{bad_tags.join(', ')}") unless bad_tags.empty?
 
 puts "==== Pushing #{repo}:#{version} ===="
