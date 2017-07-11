@@ -1,6 +1,6 @@
 ### Alpine Linux Nginx
 
-A lightweight [Nginx][nginx] [Docker image][dockerhub_project] built from source atop [Alpine Linux][alpine_linux]. It is compiled from source using the same [configure arguments][nginx_configure] as the official, pre-built packages. Available on [GitHub][github_project].
+A lightweight [Nginx][nginx] [Docker image][docker_project] built from source atop [Alpine Linux][alpine_linux]. It is compiled from source using the same [configure arguments][nginx_configure] as the official, pre-built packages. Available on [GitHub][github_project].
 
     $ docker run --rm sickp/alpine-nginx:1.13.0-r1  # nginx -g 'daemon off';
 
@@ -8,7 +8,19 @@ The version tag format is formed from the Nginx version `{major}.{minor}.{teeny}
 
 ### Mainline 1.13.x Tags
 
-##### `1.13.2-r1`, `1.13.2`, `1.13`, `mainline`, `latest`
+##### `1.13.3-r1`, `1.13.3`, `1.13`, `mainline`, `latest`
+
+[Dockerfile](https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.13.3-r1/Dockerfile) / [ChangeLog][nginx_changes] / 2017-07-11
+
+    $ docker run --rm sickp/alpine-nginx:1.13.3-r1 about
+    * Nginx 1.13.3
+    built by gcc 6.3.0 (Alpine 6.3.0)
+    built with LibreSSL 2.5.4
+    TLS SNI support enabled
+    configure arguments: --prefix=/etc/nginx --sbin-path=/usr/sbin/nginx --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --pid-path=/var/run/nginx.pid --lock-path=/var/run/nginx.lock --http-client-body-temp-path=/var/cache/nginx/client_temp --http-proxy-temp-path=/var/cache/nginx/proxy_temp --http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp --http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp --http-scgi-temp-path=/var/cache/nginx/scgi_temp --user=nginx --group=nginx --with-http_ssl_module --with-http_realip_module --with-http_addition_module --with-http_sub_module --with-http_dav_module --with-http_flv_module --with-http_mp4_module --with-http_gunzip_module --with-http_gzip_static_module --with-http_random_index_module --with-http_secure_link_module --with-http_stub_status_module --with-http_auth_request_module --with-threads --with-stream --with-stream_ssl_module --with-http_slice_module --with-mail --with-mail_ssl_module --with-file-aio --with-http_v2_module --with-ipv6 --with-stream_realip_module
+    * Alpine Linux 3.6.2
+
+##### `1.13.2-r1`, `1.13.2`
 
 [Dockerfile](https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.13.2-r1/Dockerfile) / [ChangeLog][nginx_changes] / 2017-06-27
 
@@ -46,7 +58,19 @@ The version tag format is formed from the Nginx version `{major}.{minor}.{teeny}
 
 ### Stable 1.12.x Tags
 
-##### `1.12.0-r2`, `1.12.0`, `1.12`, `stable`
+##### `1.12.1-r1`, `1.12.1`, `1.12`, `stable`
+
+[Dockerfile](https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.12.1-r1/Dockerfile) / [ChangeLog][nginx_changes_1_12] / 2017-07-11
+
+    $ docker run --rm sickp/alpine-nginx:1.12.1-r1 about
+    * Nginx 1.12.1
+    built by gcc 6.3.0 (Alpine 6.3.0)
+    built with LibreSSL 2.5.4
+    TLS SNI support enabled
+    configure arguments: --prefix=/etc/nginx --sbin-path=/usr/sbin/nginx --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --pid-path=/var/run/nginx.pid --lock-path=/var/run/nginx.lock --http-client-body-temp-path=/var/cache/nginx/client_temp --http-proxy-temp-path=/var/cache/nginx/proxy_temp --http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp --http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp --http-scgi-temp-path=/var/cache/nginx/scgi_temp --user=nginx --group=nginx --with-http_ssl_module --with-http_realip_module --with-http_addition_module --with-http_sub_module --with-http_dav_module --with-http_flv_module --with-http_mp4_module --with-http_gunzip_module --with-http_gzip_static_module --with-http_random_index_module --with-http_secure_link_module --with-http_stub_status_module --with-http_auth_request_module --with-threads --with-stream --with-stream_ssl_module --with-http_slice_module --with-mail --with-mail_ssl_module --with-file-aio --with-http_v2_module --with-ipv6 --with-stream_realip_module
+    * Alpine Linux 3.6.2
+
+##### `1.12.0-r2`, `1.12.0`
 
 [Dockerfile](https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.12.0-r2/Dockerfile) / [ChangeLog][nginx_changes_1_12] / 2017-04-12
 
@@ -141,6 +165,7 @@ The version tag format is formed from the Nginx version `{major}.{minor}.{teeny}
 
 ### History / ChangeLog
 
+    2017-07-11 Updated to Nginx 1.13.3, Nginx 1.12.1.
     2017-06-29 Updated to Nginx 1.13.2, Alpine Linux 3.6.2.
     2017-05-31 Updated to Nginx 1.13.1, Alpine Linux 3.6.0.
     2017-04-26 Updated Nginx mainline to 1.13.0.
@@ -176,8 +201,8 @@ The version tag format is formed from the Nginx version `{major}.{minor}.{teeny}
     2015-12-10 Updated to 1.9.9.
     2015-11-27 Initial version.
 
-[alpine_linux]:        https://hub.docker.com/_/alpine/
-[dockerhub_project]:   https://hub.docker.com/r/sickp/alpine-nginx/
+[alpine_linux]:        https://store.docker.com/images/alpine
+[docker_project]:      https://store.docker.com/community/images/sickp/alpine-nginx
 [github_project]:      https://github.com/sickp/docker-alpine-nginx/
 [nginx]:               http://nginx.org/
 [nginx_changes]:       http://nginx.org/en/CHANGES
