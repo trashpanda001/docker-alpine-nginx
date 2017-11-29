@@ -2,16 +2,16 @@
 
 A lightweight [Nginx][nginx] [Docker image][docker_project] built from source atop [Alpine Linux][alpine_linux]. It is compiled from source using the same [configure arguments][nginx_configure] as the official, pre-built packages. Available on [GitHub][github_project].
 
-    $ docker run --rm sickp/alpine-nginx:1.13.6-r1  # nginx -g 'daemon off';
+    $ docker run --rm sickp/alpine-nginx:1.13.7-r1  # nginx -g 'daemon off';
 
 The version tag format is formed from the Nginx version `{major}.{minor}.{teeny}` plus an image revision `-r{revision}`. The image revision will change if the Dockerfile or Alpine base image changes.
 
-### Mainline - `1.13.6-r1`, `1.13.6`, `1.13`, `mainline`, `latest`
+### Mainline - `1.13.7-r1`, `1.13.7`, `1.13`, `mainline`, `latest`
 
-[Dockerfile](https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.13.6-r1/Dockerfile) / [ChangeLog][nginx_changes] / 2017-10-10
+[Dockerfile](https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.13.7-r1/Dockerfile) / [ChangeLog][nginx_changes] / 2017-10-10
 
-    $ docker run --rm sickp/alpine-nginx:1.13.6-r1 about
-    * Nginx 1.13.6
+    $ docker run --rm sickp/alpine-nginx:1.13.7-r1 about
+    * Nginx 1.13.7
     built by gcc 6.3.0 (Alpine 6.3.0)
     built with LibreSSL 2.5.5
     TLS SNI support enabled
@@ -22,6 +22,7 @@ The version tag format is formed from the Nginx version `{major}.{minor}.{teeny}
 
 | Tag       | Version  | Date       | Alpine | LibreSSL |
 | --------- | -------- | ---------- | ------ | -------- |
+| 1.13.7-r1 | 1.13.7   | 2017-11-21 | 3.6.2  | 2.5.5    |
 | 1.13.6-r1 | 1.13.6   | 2017-10-10 | 3.6.2  | 2.5.5    |
 | 1.13.5-r1 | 1.13.5   | 2017-09-05 | 3.6.2  | 2.5.4    |
 | 1.13.4-r1 | 1.13.4   | 2017-08-08 | 3.6.2  | 2.5.4    |
@@ -106,7 +107,8 @@ The version tag format is formed from the Nginx version `{major}.{minor}.{teeny}
 
 ### History / ChangeLog
 
-    2017-10-18 Updated Nginx 1.12.2.
+    2017-11-29 Updated to Nginx 1.13.7.
+    2017-10-18 Updated to Nginx 1.12.2.
     2017-10-11 Updated to Nginx 1.13.6.
     2017-09-05 Updated to Nginx 1.13.5.
     2017-08-09 Updated to Nginx 1.13.4.
