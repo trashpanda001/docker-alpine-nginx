@@ -8,7 +8,7 @@ The version tag format is formed from the Nginx version `{major}.{minor}.{teeny}
 
 ### Mainline - `1.13.7-r1`, `1.13.7`, `1.13`, `mainline`, `latest`
 
-[Dockerfile](https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.13.7-r1/Dockerfile) / [ChangeLog][nginx_changes] / 2017-10-10
+[Dockerfile](https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.13.7-r1/Dockerfile) / [ChangeLog][nginx_changes] / 2017-11-21
 
     $ docker run --rm sickp/alpine-nginx:1.13.7-r1 about
     * Nginx 1.13.7
