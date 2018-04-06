@@ -2,16 +2,16 @@
 
 A lightweight [Nginx][nginx] [Docker image][docker_project] built from source atop [Alpine Linux][alpine_linux]. It is compiled from source using the same [configure arguments][nginx_configure] as the official, pre-built packages. Available on [GitHub][github_project].
 
-    $ docker run --rm sickp/alpine-nginx:1.13.10-r1  # nginx -g 'daemon off';
+    $ docker run --rm sickp/alpine-nginx:1.13.11-r1  # nginx -g 'daemon off';
 
 The version tag format is formed from the Nginx version `{major}.{minor}.{teeny}` plus an image revision `-r{revision}`. The image revision will change if the Dockerfile or Alpine base image changes.
 
-### Mainline - `1.13.10-r1`, `1.13.10`, `1.13`, `mainline`, `latest`
+### Mainline - `1.13.11-r1`, `1.13.11`, `1.13`, `mainline`, `latest`
 
-[Dockerfile](https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.13.10-r1/Dockerfile) / [ChangeLog][nginx_changes] / 2018-03-20
+[Dockerfile](https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.13.11-r1/Dockerfile) / [ChangeLog][nginx_changes] / 2018-04-03
 
-    $ docker run --rm sickp/alpine-nginx:1.13.10-r1 about
-    * Nginx 1.13.10
+    $ docker run --rm sickp/alpine-nginx:1.13.11-r1 about
+    * Nginx 1.13.11
     built by gcc 6.4.0 (Alpine 6.4.0) 
     built with LibreSSL 2.6.3
     TLS SNI support enabled
@@ -22,6 +22,7 @@ The version tag format is formed from the Nginx version `{major}.{minor}.{teeny}
 
 | Tag        | Version | Date       | Alpine | LibreSSL |
 | ---------- | ------- | ---------- | ------ | -------- |
+| 1.13.11-r1 | 1.13.11 | 2018-04-03 | 3.7.0  | 2.6.3    |
 | 1.13.10-r1 | 1.13.10 | 2018-03-21 | 3.7.0  | 2.6.3    |
 | 1.13.9-r1  | 1.13.9  | 2018-02-20 | 3.7.0  | 2.6.3    |
 | 1.13.8-r1  | 1.13.8  | 2017-12-26 | 3.7.0  | 2.6.3    |
@@ -35,22 +36,23 @@ The version tag format is formed from the Nginx version `{major}.{minor}.{teeny}
 | 1.13.1-r1  | 1.13.1  | 2017-05-30 | 3.6.0  | 2.5.4    |
 | 1.13.0-r1  | 1.13.0  | 2017-04-25 | 3.5.2  | 2.4.4    |
 
-### Stable - `1.12.2-r1`, `1.12.2`, `1.12`, `stable`
+### Stable - `1.12.2-r2`, `1.12.2`, `1.12`, `stable`
 
-[Dockerfile](https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.12.2-r1/Dockerfile) / [ChangeLog][nginx_changes_1_12] / 2017-10-17
+[Dockerfile](https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.12.2-r2/Dockerfile) / [ChangeLog][nginx_changes_1_12] / 2017-10-17
 
-    $ docker run --rm sickp/alpine-nginx:1.12.2-r1 about
-    * Nginx 1.12.1
-    built by gcc 6.3.0 (Alpine 6.3.0)
-    built with LibreSSL 2.5.5
+    $ docker run --rm sickp/alpine-nginx:1.12.2-r2 about
+    * Nginx 1.12.2
+    built by gcc 6.4.0 (Alpine 6.4.0) 
+    built with LibreSSL 2.6.3
     TLS SNI support enabled
     configure arguments: --prefix=/etc/nginx --sbin-path=/usr/sbin/nginx --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --pid-path=/var/run/nginx.pid --lock-path=/var/run/nginx.lock --http-client-body-temp-path=/var/cache/nginx/client_temp --http-proxy-temp-path=/var/cache/nginx/proxy_temp --http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp --http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp --http-scgi-temp-path=/var/cache/nginx/scgi_temp --user=nginx --group=nginx --with-http_ssl_module --with-http_realip_module --with-http_addition_module --with-http_sub_module --with-http_dav_module --with-http_flv_module --with-http_mp4_module --with-http_gunzip_module --with-http_gzip_static_module --with-http_random_index_module --with-http_secure_link_module --with-http_stub_status_module --with-http_auth_request_module --with-threads --with-stream --with-stream_ssl_module --with-http_slice_module --with-mail --with-mail_ssl_module --with-file-aio --with-http_v2_module --with-ipv6 --with-stream_realip_module
-    * Alpine Linux 3.6.2
+    * Alpine Linux 3.7.0
 
 #### 1.12.x Tags
 
 | Tag        | Version | Date       | Alpine | LibreSSL |
 | ---------- | ------- | ---------- | ------ | -------- |
+| 1.12.2-r2  | 1.12.2  | 2017-10-17 | 3.7.0  | 2.6.3    |
 | 1.12.2-r1  | 1.12.2  | 2017-10-17 | 3.6.2  | 2.5.5    |
 | 1.12.1-r1  | 1.12.1  | 2017-07-11 | 3.6.2  | 2.5.4    |
 | 1.12.0-r2  | 1.12.0  | 2017-04-12 | 3.6.0  | 2.5.4    |
@@ -111,6 +113,7 @@ The version tag format is formed from the Nginx version `{major}.{minor}.{teeny}
 
 ### History / ChangeLog
 
+    2018-04-06 Updated to Nginx 1.13.11 and Nginx 1.12.2-r2 (Alpine 3.7.0).
     2018-03-21 Updated to Nginx 1.13.10.
     2018-02-20 Updated to Nginx 1.13.9.
     2017-12-26 Updated to Nginx 1.13.8.
