@@ -6,6 +6,24 @@ A lightweight [Nginx][nginx] [Docker image][docker_project] built from source at
 
 The version tag format is formed from the Nginx version `{major}.{minor}.{teeny}` plus an image revision `-r{revision}`. The image revision will change if the Dockerfile or Alpine base image changes.
 
+### Stable - `1.14.0-r1`, `1.14.0`, `1.14`, `stable`
+
+[Dockerfile](https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.14.0-r1/Dockerfile) / [ChangeLog][nginx_changes_1_14] / 2018-04-17
+
+    $ docker run --rm sickp/alpine-nginx:1.14.0-r1 about
+    * Nginx 1.14.0
+    built by gcc 6.4.0 (Alpine 6.4.0) 
+    built with LibreSSL 2.6.3
+    TLS SNI support enabled
+    configure arguments: --prefix=/etc/nginx --sbin-path=/usr/sbin/nginx --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log --pid-path=/var/run/nginx.pid --lock-path=/var/run/nginx.lock --user=nginx --group=nginx --with-threads --with-file-aio --with-http_ssl_module --with-http_v2_module --with-http_realip_module --with-http_addition_module --with-http_sub_module --with-http_dav_module --with-http_flv_module --with-http_mp4_module --with-http_gunzip_module --with-http_gzip_static_module --with-http_auth_request_module --with-http_random_index_module --with-http_secure_link_module --with-http_slice_module --with-http_stub_status_module --http-log-path=/var/log/nginx/access.log --http-client-body-temp-path=/var/cache/nginx/client_temp --http-proxy-temp-path=/var/cache/nginx/proxy_temp --http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp --http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp --http-scgi-temp-path=/var/cache/nginx/scgi_temp --with-mail --with-mail_ssl_module --with-stream --with-stream_ssl_module --with-stream_realip_module
+    * Alpine Linux 3.7.0
+
+#### 1.14.x Tags
+
+| Tag        | Version | Date       | Alpine | LibreSSL |
+| ---------- | ------- | ---------- | ------ | -------- |
+| 1.14.0-r1  | 1.14.0  | 2018-04-17 | 3.7.0  | 2.6.3    |
+
 ### Mainline - `1.13.12-r1`, `1.13.12`, `1.13`, `mainline`, `latest`
 
 [Dockerfile](https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.13.12-r1/Dockerfile) / [ChangeLog][nginx_changes] / 2018-04-10
@@ -37,7 +55,7 @@ The version tag format is formed from the Nginx version `{major}.{minor}.{teeny}
 | 1.13.1-r1  | 1.13.1  | 2017-05-30 | 3.6.0  | 2.5.4    |
 | 1.13.0-r1  | 1.13.0  | 2017-04-25 | 3.5.2  | 2.4.4    |
 
-### Stable - `1.12.2-r2`, `1.12.2`, `1.12`, `stable`
+### Old Stable - `1.12.2-r2`, `1.12.2`, `1.12`
 
 [Dockerfile](https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.12.2-r2/Dockerfile) / [ChangeLog][nginx_changes_1_12] / 2017-10-17
 
@@ -90,7 +108,7 @@ The version tag format is formed from the Nginx version `{major}.{minor}.{teeny}
 | 1.11.1     | 1.11.1  | 2016-05-31 |        |          |
 | 1.11.0     | 1.11.0  | 2016-05-24 |        |          |
 
-### Old Stable - `1.10.3-r2`, `1.10.3`, `1.10`
+### Really Old Stable - `1.10.3-r2`, `1.10.3`, `1.10`
 
 [Dockerfile](https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.10.3-r2/Dockerfile) / [ChangeLog][nginx_changes_1_10] / 2017-03-21
 
@@ -114,6 +132,7 @@ The version tag format is formed from the Nginx version `{major}.{minor}.{teeny}
 
 ### History / ChangeLog
 
+    2018-04-17 Updated to Nginx 1.14.0.
     2018-04-10 Updated to Nginx 1.13.12.
     2018-04-06 Updated to Nginx 1.13.11 and Nginx 1.12.2-r2 (Alpine 3.7.0).
     2018-03-21 Updated to Nginx 1.13.10.
@@ -168,4 +187,5 @@ The version tag format is formed from the Nginx version `{major}.{minor}.{teeny}
 [nginx_changes]:       http://nginx.org/en/CHANGES
 [nginx_changes_1_10]:  http://nginx.org/en/CHANGES-1.10
 [nginx_changes_1_12]:  http://nginx.org/en/CHANGES-1.12
+[nginx_changes_1_14]:  http://nginx.org/en/CHANGES-1.14
 [nginx_configure]:     http://nginx.org/en/linux_packages.html#mainline
