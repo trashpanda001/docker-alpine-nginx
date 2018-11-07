@@ -6,41 +6,48 @@ A lightweight [Nginx][nginx] [Docker image][docker_project] built from source at
 
 The version tag format is formed from the Nginx version `{major}.{minor}.{teeny}` plus an image revision `-r{revision}`. The image revision will change if the Dockerfile or Alpine base image changes.
 
-### Mainline - `1.15.1-r1`, `1.15.1`, `1.15`, `mainline`, `latest`
+### Mainline - `1.15.6-r1`, `1.15.6`, `1.15`, `mainline`, `latest`
 
-[Dockerfile](https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.15.1-r1/Dockerfile) / [ChangeLog][nginx_changes] / 2018-07-03
+[Dockerfile](https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.15.6-r1/Dockerfile) / [ChangeLog][nginx_changes] / 2018-11-06
 
-    $ docker run --rm sickp/alpine-nginx:1.15.1-r1 about
-    * Nginx 1.15.1
+    $ docker run --rm sickp/alpine-nginx:1.15.6-r1 about
+    * Nginx 1.15.6
     built by gcc 6.4.0 (Alpine 6.4.0) 
-    built with LibreSSL 2.6.5
+    built with LibreSSL 2.7.4
     TLS SNI support enabled
     configure arguments: --prefix=/etc/nginx --sbin-path=/usr/sbin/nginx --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log --pid-path=/var/run/nginx.pid --lock-path=/var/run/nginx.lock --user=nginx --group=nginx --with-threads --with-file-aio --with-http_ssl_module --with-http_v2_module --with-http_realip_module --with-http_addition_module --with-http_sub_module --with-http_dav_module --with-http_flv_module --with-http_mp4_module --with-http_gunzip_module --with-http_gzip_static_module --with-http_auth_request_module --with-http_random_index_module --with-http_secure_link_module --with-http_slice_module --with-http_stub_status_module --http-log-path=/var/log/nginx/access.log --http-client-body-temp-path=/var/cache/nginx/client_temp --http-proxy-temp-path=/var/cache/nginx/proxy_temp --http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp --http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp --http-scgi-temp-path=/var/cache/nginx/scgi_temp --with-mail --with-mail_ssl_module --with-stream --with-stream_ssl_module --with-stream_realip_module
-    * Alpine Linux 3.7.0
+    * Alpine Linux 3.8.1
+
 
 #### 1.15.x Tags
 
 | Tag        | Version | Date       | Alpine | LibreSSL |
 | ---------- | ------- | ---------- | ------ | -------- |
+| 1.15.6-r1  | 1.15.6  | 2018-11-06 | 3.8.1  | 2.7.4    |
+| 1.15.5-r1  | 1.15.5  | 2018-10-02 | 3.8.1  | 2.7.4    |
+| 1.15.4-r1  | 1.15.4  | 2018-09-25 | 3.8.1  | 2.7.4    |
+| 1.15.3-r1  | 1.15.3  | 2018-08-28 | 3.8.1  | 2.7.4    |
+| 1.15.2-r1  | 1.15.2  | 2018-07-24 | 3.8.1  | 2.7.4    |
 | 1.15.1-r1  | 1.15.1  | 2018-07-03 | 3.7.0  | 2.6.5    |
 | 1.15.0-r1  | 1.15.0  | 2018-06-05 | 3.7.0  | 2.6.5    |
 
-### Stable - `1.14.0-r1`, `1.14.0`, `1.14`, `stable`
+### Stable - `1.14.1-r1`, `1.14.1`, `1.14`, `stable`
 
-[Dockerfile](https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.14.0-r1/Dockerfile) / [ChangeLog][nginx_changes_1_14] / 2018-04-17
+[Dockerfile](https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.14.0-r1/Dockerfile) / [ChangeLog][nginx_changes_1_14] / 2018-11-06
 
-    $ docker run --rm sickp/alpine-nginx:1.14.0-r1 about
-    * Nginx 1.14.0
+    $ docker run --rm sickp/alpine-nginx:1.14.1-r1 about
+    * Nginx 1.14.1
     built by gcc 6.4.0 (Alpine 6.4.0) 
-    built with LibreSSL 2.6.3
+    built with LibreSSL 2.7.4
     TLS SNI support enabled
     configure arguments: --prefix=/etc/nginx --sbin-path=/usr/sbin/nginx --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log --pid-path=/var/run/nginx.pid --lock-path=/var/run/nginx.lock --user=nginx --group=nginx --with-threads --with-file-aio --with-http_ssl_module --with-http_v2_module --with-http_realip_module --with-http_addition_module --with-http_sub_module --with-http_dav_module --with-http_flv_module --with-http_mp4_module --with-http_gunzip_module --with-http_gzip_static_module --with-http_auth_request_module --with-http_random_index_module --with-http_secure_link_module --with-http_slice_module --with-http_stub_status_module --http-log-path=/var/log/nginx/access.log --http-client-body-temp-path=/var/cache/nginx/client_temp --http-proxy-temp-path=/var/cache/nginx/proxy_temp --http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp --http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp --http-scgi-temp-path=/var/cache/nginx/scgi_temp --with-mail --with-mail_ssl_module --with-stream --with-stream_ssl_module --with-stream_realip_module
-    * Alpine Linux 3.7.0
+    * Alpine Linux 3.8.1
 
 #### 1.14.x Tags
 
 | Tag        | Version | Date       | Alpine | LibreSSL |
 | ---------- | ------- | ---------- | ------ | -------- |
+| 1.14.1-r1  | 1.14.1  | 2018-11-06 | 3.8.1  | 2.7.4    |
 | 1.14.0-r1  | 1.14.0  | 2018-04-17 | 3.7.0  | 2.6.3    |
 
 ### Mainline - `1.13.12-r1`, `1.13.12`, `1.13`, `mainline`, `latest`
