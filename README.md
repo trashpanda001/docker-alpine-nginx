@@ -119,12 +119,10 @@ The version tag format is formed from the Nginx version `{major}.{minor}.{teeny}
 | 1.10.1     | 1.10.1  | 2016-05-31 |        |          |
 | 1.10.0     | 1.10.0  | 2016-04-26 |        |          |
 
-[alpine_linux]:        https://store.docker.com/images/alpine
-[docker_project]:      https://store.docker.com/community/images/sickp/alpine-nginx
+[alpine_linux]:        https://hub.docker.com/_/alpine
+[docker_project]:      https://hub.docker.com/r/sickp/alpine-nginx
 [github_project]:      https://github.com/sickp/docker-alpine-nginx/
 [nginx]:               http://nginx.org/
 [nginx_changes]:       http://nginx.org/en/CHANGES
-[nginx_changes_1_10]:  http://nginx.org/en/CHANGES-1.10
-[nginx_changes_1_12]:  http://nginx.org/en/CHANGES-1.12
-[nginx_changes_1_14]:  http://nginx.org/en/CHANGES-1.14
+[nginx_changes_1_16]:  http://nginx.org/en/CHANGES-1.16
 [nginx_configure]:     http://nginx.org/en/linux_packages.html#mainline
