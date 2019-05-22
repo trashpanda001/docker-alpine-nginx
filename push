@@ -15,12 +15,15 @@ end
 version, *tags = ARGV
 md = version&.match(/\A(((\d+)\.\d+)\.\d+)-r\d+\z/)
 case md && md[2]
+when "1.17"
+  puts "Pushing 1.17.x mainline..."
+  possible_tags = [ md[1], md[2], 'mainline', 'latest' ]
 when "1.16"
-  puts "Pushing 1.16.x..."
+  puts "Pushing 1.16.x stable..."
   possible_tags = [ md[1], md[2], 'stable' ]
 when "1.15"
-  puts "Pushing 1.15.x mainline..."
-  possible_tags = [ md[1], md[2], 'mainline', 'latest' ]
+  puts "Pushing 1.15.x..."
+  possible_tags = [ md[1], md[2] ]
 when "1.14"
   puts "Pushing 1.14.x..."
   possible_tags = [ md[1], md[2] ]
