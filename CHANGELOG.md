@@ -1,5 +1,6 @@
 ### History / ChangeLog
 
+    2019-07-12 Updated to Nginx 1.17.1 (Alpine 3.10.1).
     2019-05-18 Updated to Nginx 1.16.0 / 1.15.12 (Alpine 3.9.4).
     2018-11-28 Added Nginx 1.15.7.
     2018-11-06 Added Nginx 1.15.2-6, Nginx 1.14.1 (Alpine 3.8.1).
