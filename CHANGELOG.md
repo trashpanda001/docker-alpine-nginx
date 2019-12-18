@@ -1,5 +1,6 @@
 ### History / ChangeLog
 
+    2019-12-18 Updated to Nginx 1.17.6.
     2019-11-06 Updated to Nginx 1.17.5.
     2019-10-03 Updated to Nginx 1.17.4.
     2019-08-17 Updated to Nginx 1.17.3 / 1.16.1.

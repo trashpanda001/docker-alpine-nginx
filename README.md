@@ -2,16 +2,16 @@
 
 A lightweight [Nginx][nginx] [Docker image][docker_project] built from source atop [Alpine Linux][alpine_linux]. It is compiled from source using the same [configure arguments][nginx_configure] as the official, pre-built packages. Available on [GitHub][github_project].
 
-    $ docker run --rm sickp/alpine-nginx:1.17.5-r1  # nginx -g 'daemon off';
+    $ docker run --rm sickp/alpine-nginx:1.17.6-r1  # nginx -g 'daemon off';
 
 The version tag format is formed from the Nginx version `{major}.{minor}.{teeny}` plus an image revision `-r{revision}`. The image revision will change if the Dockerfile or Alpine base image changes.
 
-### Mainline - `1.17.5-r1`, `1.17.5`, `1.17`, `mainline`, `latest`
+### Mainline - `1.17.6-r1`, `1.17.6`, `1.17`, `mainline`, `latest`
 
-[Dockerfile](https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.17.5-r1/Dockerfile) / [ChangeLog][nginx_changes] / 2019-10-22
+[Dockerfile](https://github.com/sickp/docker-alpine-nginx/tree/master/versions/1.17.6-r1/Dockerfile) / [ChangeLog][nginx_changes] / 2019-11-19
 
-    $ docker run --rm sickp/alpine-nginx:1.17.5-r1 about
-    * Nginx 1.17.5
+    $ docker run --rm sickp/alpine-nginx:1.17.6-r1 about
+    * Nginx 1.17.6
     built by gcc 8.3.0 (Alpine 8.3.0)
     built with LibreSSL 2.7.5
     TLS SNI support enabled
@@ -22,6 +22,7 @@ The version tag format is formed from the Nginx version `{major}.{minor}.{teeny}
 
 | Tag       | Version | Date       | Alpine | LibreSSL |
 | --------- | ------- | ---------- | ------ | -------- |
+| 1.17.6-r1 | 1.17.6  | 2019-11-19 | 3.10.3 | 2.7.5    |
 | 1.17.5-r1 | 1.17.5  | 2019-10-22 | 3.10.3 | 2.7.5    |
 | 1.17.4-r1 | 1.17.4  | 2019-09-24 | 3.10.2 | 2.7.5    |
 | 1.17.3-r1 | 1.17.3  | 2019-08-13 | 3.10.1 | 2.7.5    |
